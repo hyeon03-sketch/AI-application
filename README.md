@@ -31,6 +31,9 @@ AI application 수업 팀 프로젝트 저장소 / Team project repository for t
 AI application/
 ├── README.md                       ← 이 파일: 소개 + 협업 규칙 / this file: intro + cowork rules
 ├── PROGRESS_AND_PRESENTATION.md    ← 진행 상황·발표 흐름 / progress & presentation flow
+├── RULES.md                        ← 협업 규칙 전체 / full cowork rules
+├── KERAAL_GitHub_Guide_KR/EN.pdf   ← GitHub 사용법 / how to use GitHub
+├── .github/CODEOWNERS              ← 승인 담당자 / required reviewers
 ├── *.pdf, *.docx                   ← 제안서, 계획, 역할, 회의 안건, 보고서 / proposal, plan, roles, agendas, reports
 ├── The sixth video lecture/        ← 수업 과제 / class assignment
 ├── members/                        ← 개인 폴더 / personal folders
@@ -48,6 +51,7 @@ AI application/
 ## 처음 시작하기 / Getting started
 
 ```bash
+# 0. 처음이면 사용법 PDF 먼저 / new to GitHub? read the guide PDF first
 # 1. 초대 수락 후 내려받기 / accept the invite, then clone
 git clone https://github.com/hyeon03-sketch/AI-application.git
 cd AI-application
@@ -74,62 +78,30 @@ git checkout -b roshini/r1-threshold       # 내 브랜치 / your branch: <name>
 git add members/roshini keraal_pipeline/src/threshold_calibration.py
 git commit -m "R1: add threshold calibration script"
 git push -u origin roshini/r1-threshold
-# GitHub에서 Pull Request 열기 → 리뷰 → main에 merge
-# Open a Pull Request on GitHub → review → merge into main
+# GitHub에서 Pull Request 열기 → (공용 코드면 승인) → main에 merge
+# Open a Pull Request on GitHub → (approval for shared code) → merge into main
 ```
 
 ---
 
 ## 협업 규칙 / Cowork rules
 
-### 1. 브랜치와 Pull Request / Branches and Pull Requests
+**전체 규칙 → [`RULES.md`](RULES.md)** · 처음 쓰는 사람 → [`KERAAL_GitHub_Guide_KR.pdf`](KERAAL_GitHub_Guide_KR.pdf) / [`_EN.pdf`](KERAAL_GitHub_Guide_EN.pdf)
+**Full rules → [`RULES.md`](RULES.md)** · New to GitHub → the guide PDFs above.
 
-- **KR.** `main`에 직접 push하지 않는다. 브랜치 이름은 `이름/작업` 형식이다(예: `euijin/u2-segments`, `sonny/slides`).
-  **EN.** Do not push directly to `main`. Branch names follow `name/task` (e.g. `euijin/u2-segments`, `sonny/slides`).
-- **KR.** 자기 개인 폴더(`members/<이름>/`)만 바꾼 PR은 본인이 바로 merge해도 된다.
-  **EN.** A PR that only touches your own `members/<name>/` folder can be merged by yourself.
-- **KR.** `keraal_pipeline/`이나 루트 문서를 바꾸는 PR은 **다른 한 명 이상이 승인**한 뒤 merge한다. 코드는 로시니나 Sonny가, 데이터 처리는 의진이 보는 것을 기본으로 한다.
-  **EN.** A PR that changes `keraal_pipeline/` or root documents needs **approval from at least one other member** before merging. By default, Roshini or Sonny reviews code and Euijin reviews data processing.
-- **KR.** 남의 개인 폴더는 고치지 않는다. 의견은 PR 댓글이나 Issue로 남긴다.
-  **EN.** Don't edit someone else's personal folder; leave comments on the PR or open an Issue.
+> ⚠️ 이 저장소는 **공개(public)**다. 원본 데이터·파생 표·영상·영상 캡처·개인정보는 절대 올리지 않는다.
+> ⚠️ This repository is **public**. Never commit raw data, derived tables, videos, video captures or personal information.
 
-### 2. 커밋 / Commits
-
-- **KR.** 커밋 메시지는 한 줄 요약으로, 과제 ID를 앞에 붙인다(예: `U2: add QC summary`, `R1: fix threshold refit`, `docs: update slide plan`).
-  **EN.** Commit messages are one-line summaries prefixed with the task ID (e.g. `U2: add QC summary`, `R1: fix threshold refit`, `docs: update slide plan`).
-- **KR.** 작게 자주 커밋한다. 하루 작업이 끝나면 push한다.
-  **EN.** Commit small and often; push at the end of each working day.
-
-### 3. 데이터와 영상 (가장 중요) / Data and videos (most important)
-
-- **KR.** KERAAL은 CC BY-NC-SA다. **원본 데이터, 원본에서 만든 표(`model_input_*.csv`, `temporal_segments.csv` 등), 영상, 영상 캡처는 GitHub에 올리지 않는다.** 비공개 저장소여도 마찬가지다. 이런 파일은 팀 공유 드라이브나 직접 전달로 주고받는다.
-  **EN.** KERAAL is CC BY-NC-SA. **Never commit raw data, tables derived from it (`model_input_*.csv`, `temporal_segments.csv`, …), videos, or video frames**, even though the repo is private. Share those through the team drive or hand them over directly.
-- **KR.** 올려도 되는 것: 코드, 설정 파일, 결과 요약 표·그림(집계값), 문서.
-  **EN.** OK to commit: code, configs, summary result tables and figures (aggregated values), documents.
-- **KR.** 100 MB가 넘는 파일은 GitHub가 받지 않는다. 큰 파일은 올리기 전에 물어본다.
-  **EN.** GitHub rejects files over 100 MB; ask before committing anything large.
-
-### 4. 연구 규칙 / Research rules
-
-- **KR.** `keraal_pipeline/configs/p1_confirmatory.json`은 사전 등록으로 잠겨 있다. **절대 바꾸지 않는다**(바꾸면 단위 테스트가 실패한다). 새 실험은 `configs/`에 새 설정 파일로 만든다.
-  **EN.** `keraal_pipeline/configs/p1_confirmatory.json` is locked by the pre-registration. **Never edit it** (the unit tests fail if you do). New experiments get a new config file in `configs/`.
-- **KR.** 확증 분석(2026-10-08) 이후 결과는 모두 **"탐색(exploratory)"**으로 표시한다.
-  **EN.** Every result after the confirmatory run (2026-10-08) is labelled **"exploratory"**.
-- **KR.** 평가는 항상 참가자 단위로 나눈다. 점수 옆에 다수 클래스 기준선, 순열 null 95%, 유효 N을 함께 적고, 주석자 A·B를 둘 다 보고한다.
-  **EN.** Always split by participant. Report the majority baseline, the permutation-null 95th percentile and the effective N next to every score, for both annotators.
-- **KR.** 새 스크립트에는 `--check` 자체 시험을 넣고 `src/verify.py`에 추가한다. 팀 코드에 merge하기 전에 `python src/verify.py`가 통과해야 한다.
-  **EN.** New scripts get a `--check` self-test and are added to `src/verify.py`. `python src/verify.py` must pass before merging into the shared code.
-- **KR.** 한 일과 찾은 것은 날짜와 함께 `keraal_pipeline/PROGRESS.md`에 한 단락으로 남긴다.
-  **EN.** Log what you did and found, with the date, as one paragraph in `keraal_pipeline/PROGRESS.md`.
-
-### 5. 소통 / Communication
-
-- **KR.** 할 일, 버그, 질문은 GitHub **Issues**에 올리고 담당자를 지정한다. 제목 앞에 과제 ID를 붙인다(예: `[R4] 시간 구간 모델 지표 정하기`).
-  **EN.** Put tasks, bugs and questions in GitHub **Issues** and assign an owner. Prefix the title with the task ID (e.g. `[R4] decide temporal-model metric`).
-- **KR.** 막히면 혼자 오래 붙잡지 말고 Issue나 단톡방에 바로 물어본다. 디버깅은 회의 밖에서 한다.
-  **EN.** If you're stuck, ask early in an Issue or the group chat. Debugging happens outside meetings.
-- **KR.** 회의 결과는 Sonny가 `PROGRESS.md`에 한 단락으로 정리한다.
-  **EN.** Sonny records each meeting's outcome as one paragraph in `PROGRESS.md`.
+| 핵심 규칙 / Key rule | 내용 / Detail |
+|---|---|
+| `main` 보호 / protected | 직접 push 불가, 모든 변경은 PR로 / no direct pushes, every change via PR |
+| 자기 폴더 / own folder | `members/<이름>/`만 바꾼 PR은 승인 없이 본인이 merge (웹 수정도 OK) / PRs touching only your folder: merge yourself, no approval (web edits OK) |
+| 공용 코드·규칙 문서 / shared code & rule docs | `keraal_pipeline/`, `README.md`, `RULES.md`는 코드 담당자 승인 필수 / code-owner approval required |
+| 브랜치 / branch | `이름/작업` (예 `roshini/r1-threshold`) / `name/task` |
+| 커밋 / commit | 과제 ID로 시작 (예 `U2: add QC summary`) / start with the task ID |
+| 확증 설정 / confirmatory config | `configs/p1_confirmatory.json` 수정 금지 / never edit |
+| 결과 / results | 확증 이후는 모두 "탐색", `PROGRESS.md`에 날짜와 기록 / post-confirmatory = "exploratory", log in `PROGRESS.md` |
+| 소통 / communication | Issues에 `[과제ID]`로, 막히면 바로 단톡 / Issues with `[taskID]`, ask early in the group chat |
 
 ---
 
@@ -140,5 +112,8 @@ git push -u origin roshini/r1-threshold
 | 2026-10-16 (금 / Fri) | 중간 발표 전 팀 회의, R1·R2·U1·U2 결과 / pre-midterm meeting, R1/R2/U1/U2 results |
 | 2026-10-23 (금 / Fri) | U3·U4 (Vicon 정렬, 2B 기준 분포 / Vicon alignment, 2B reference), R3·R4 (혼합 모형, 시간 구간 모델 / mixed model, temporal model) |
 
-라이선스 / Licence: 코드는 팀 내부용. KERAAL 데이터는 CC BY-NC-SA이며 이 저장소에 포함되지 않는다.
-Code is for team-internal use. KERAAL data is CC BY-NC-SA and is not included in this repository.
+## 데이터 출처와 라이선스 / Data attribution and licence
+
+- **KR.** 이 프로젝트는 KERAAL 데이터셋(https://keraal.enstb.org)을 사용한다. 데이터는 이 저장소에 포함되지 않는다. 저장소의 결과 표·그림은 KERAAL에서 파생된 집계값으로 **CC BY-NC-SA 4.0**(비영리, 출처 표시, 동일 조건) 조건을 따른다.
+- **EN.** This project uses the KERAAL dataset (https://keraal.enstb.org). The data is not included in this repository. Result tables and figures here are aggregates derived from KERAAL and are shared under **CC BY-NC-SA 4.0** (non-commercial, attribution, share-alike).
+- 코드는 수업 팀 프로젝트용이다 / Code is for the class team project.
