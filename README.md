@@ -35,7 +35,6 @@ AI application/
 ├── KERAAL_GitHub_Guide_KR/EN.pdf   ← GitHub 사용법 / how to use GitHub
 ├── .github/CODEOWNERS              ← 승인 담당자 / required reviewers
 ├── *.pdf, *.docx                   ← 제안서, 계획, 역할, 회의 안건, 보고서 / proposal, plan, roles, agendas, reports
-├── The sixth video lecture/        ← 수업 과제 / class assignment
 ├── members/                        ← 개인 폴더 / personal folders
 │   ├── sonny/  euijin/  roshini/  joshi/
 └── keraal_pipeline/                ← 팀 공용 코드 / shared code
