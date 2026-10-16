@@ -1,0 +1,14 @@
+{
+ "name": "main_binary",
+ "_doc": "Main tasks chosen in rounds 2, 4 and 11: ELK correct vs E2 and CTK correct vs E1+E3 (E13), each with annotator A and B labels. Representation ladder x Random Forest and L2 logistic regression x 5 seeds. P1 runs once Group 3 skeletons exist; P4 runs now as a preliminary look.",
+ "protocols": ["P1", "P4"],
+ "tasks": [
+  {"name": "ELK_C_vs_E2_A", "exercise": "ELK", "label_col": "label_A", "classes": ["C", "E2"]},
+  {"name": "ELK_C_vs_E2_B", "exercise": "ELK", "label_col": "label_B", "classes": ["C", "E2"]},
+  {"name": "CTK_C_vs_E13_A", "exercise": "CTK", "label_col": "label_A_ctk13", "classes": ["C", "E13"]},
+  {"name": "CTK_C_vs_E13_B", "exercise": "CTK", "label_col": "label_B_ctk13", "classes": ["C", "E13"]}
+ ],
+ "reps": ["R0", "R1", "R2", "R3", "R4", "Rerr", "Rerr_d"],
+ "models": [{"type": "rf"}, {"type": "logreg", "C": 0.1}, {"type": "majority"}],
+ "seeds": [0, 1, 2, 3, 4]
+}

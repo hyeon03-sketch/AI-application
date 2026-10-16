@@ -1,0 +1,52 @@
+{
+ "name": "p1_confirmatory_cue_removed",
+ "_doc": "Pre-registered secondary analysis (PREREGISTRATION.md, data-quality step 2): identical to p1_confirmatory but without the summary features flagged by the Group 3 trial-confound check (FDR 5%, per exercise and representation).",
+ "protocols": [
+  "P1"
+ ],
+ "tasks": [
+  {
+   "name": "CTK_C_vs_E13_A",
+   "exercise": "CTK",
+   "label_col": "label_A_ctk13",
+   "classes": [
+    "C",
+    "E13"
+   ]
+  },
+  {
+   "name": "CTK_C_vs_E13_B",
+   "exercise": "CTK",
+   "label_col": "label_B_ctk13",
+   "classes": [
+    "C",
+    "E13"
+   ]
+  }
+ ],
+ "reps": [
+  "R0",
+  "R1",
+  "Rerr"
+ ],
+ "models": [
+  {
+   "type": "rf"
+  },
+  {
+   "type": "logreg",
+   "C": 0.1
+  },
+  {
+   "type": "majority"
+  }
+ ],
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "drop_trial_cue_features": true
+}

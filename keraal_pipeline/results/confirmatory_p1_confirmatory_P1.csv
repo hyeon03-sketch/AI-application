@@ -1,0 +1,13 @@
+task,model,role,hypothesis,description,n,participants,observed,null_mean,null_p95,lo,hi,p,p_holm,supported
+CTK_C_vs_E13_A,rf,confirmatory,H1,Rerr > permutation null,104,11,0.4066,0.3454,0.4283,,,0.1429,0.2857,False
+CTK_C_vs_E13_A,rf,confirmatory,H2,R1 > R0,104,11,-0.4028,,,-0.5814,-0.2104,1.0000,1.0000,False
+CTK_C_vs_E13_A,rf,confirmatory,H3,Rerr > R1,104,11,0.0725,,,0.0000,0.1481,0.0940,0.2820,False
+CTK_C_vs_E13_A,logreg(C=0.1),robustness,H1,Rerr > permutation null,104,11,0.4933,0.4508,0.5834,,,0.3367,0.6733,False
+CTK_C_vs_E13_A,logreg(C=0.1),robustness,H2,R1 > R0,104,11,0.0694,,,-0.0995,0.2057,0.2135,0.6405,False
+CTK_C_vs_E13_A,logreg(C=0.1),robustness,H3,Rerr > R1,104,11,-0.1216,,,-0.2341,-0.0348,0.9975,0.9975,False
+CTK_C_vs_E13_B,rf,sensitivity,H1,Rerr > permutation null,101,11,0.4057,0.3297,0.4247,,,0.1149,0.2820,False
+CTK_C_vs_E13_B,rf,sensitivity,H2,R1 > R0,101,11,-0.4254,,,-0.6219,-0.2221,1.0000,1.0000,False
+CTK_C_vs_E13_B,rf,sensitivity,H3,Rerr > R1,101,11,0.0744,,,0.0000,0.1473,0.0940,0.2820,False
+CTK_C_vs_E13_B,logreg(C=0.1),sensitivity+robustness,H1,Rerr > permutation null,101,11,0.5010,0.4397,0.5809,,,0.2687,0.8062,False
+CTK_C_vs_E13_B,logreg(C=0.1),sensitivity+robustness,H2,R1 > R0,101,11,-0.0155,,,-0.1993,0.1167,0.6010,1.0000,False
+CTK_C_vs_E13_B,logreg(C=0.1),sensitivity+robustness,H3,Rerr > R1,101,11,-0.0613,,,-0.1738,0.0273,0.9055,1.0000,False

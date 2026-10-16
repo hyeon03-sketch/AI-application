@@ -1,0 +1,38 @@
+{
+ "name": "p4_smoke",
+ "_doc": "Quick end-to-end check used by run_experiment.py --check (P4 only: P1 must not run before the pre-registered confirmatory analysis). The ref_* tasks mirror rf_baseline.py settings.",
+ "protocols": [
+  "P4"
+ ],
+ "tasks": [
+  {
+   "name": "ref_A_CTK",
+   "exercise": "CTK",
+   "label_col": "label_A"
+  },
+  {
+   "name": "CTK_C_vs_E13_A",
+   "exercise": "CTK",
+   "label_col": "label_A_ctk13",
+   "classes": [
+    "C",
+    "E13"
+   ]
+  }
+ ],
+ "reps": [
+  "R1",
+  "Rerr"
+ ],
+ "models": [
+  {
+   "type": "rf"
+  },
+  {
+   "type": "majority"
+  }
+ ],
+ "seeds": [
+  0
+ ]
+}
