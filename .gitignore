@@ -1,0 +1,41 @@
+# KERAAL 원본·파생 데이터 (CC BY-NC-SA) — 절대 올리지 않는다 / never commit raw or derived data
+keraal_pipeline/raw/
+keraal_pipeline/data/
+**/model_input_*.csv
+**/temporal_segments.csv
+
+# 영상과 영상 캡처 / videos and video frames (class presentation only)
+Joshi_videos/
+keraal_pipeline/explore/video_check/*.png
+**/captures/
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# 압축본 / archives
+*.zip
+*.tar
+*.tar.xz
+*.part
+*.7z
+
+# 각자 PC 설정 / per-machine settings
+keraal_pipeline/data_root.txt
+.env
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+~$*

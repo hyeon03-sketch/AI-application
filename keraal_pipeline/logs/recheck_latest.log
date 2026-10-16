@@ -1,0 +1,148 @@
+=== index.py
+wrote C:\Users\user\Desktop\SOn H.g\class materials\AI application\keraal_pipeline\data\master_index.csv (841 rows)
+recordings per group: {'1A': 250, '2A': 51, '3': 540}
+participants per group: {'1A': ['G1A-R1-Brest', 'G1A-R2-Brest', 'G1A-R3-Brest', 'G1A-R4-Roscoff', 'G1A-R5-Roscoff', 'G1A-R6-Roscoff'], '2A': ['G2A-S1-Brest', 'G2A-S1-Roscoff', 'G2A-S2-Roscoff', 'G2A-S3-Roscoff', 'G2A-S4-Roscoff', 'G2A-S5-Brest', 'G2A-S6-Roscoff'], '3': ['G3-P1', 'G3-P2', 'G3-P3']}
+IGNORED: raw/group1A/annotatorA/.anvil
+IGNORED: raw/group1A/annotatorB/.anvil
+IGNORED: raw/group2A/annotatorA/.anvil
+IGNORED: raw/group2A/annotatorB/.anvil
+CHECK PASSED
+=== labels.py
+wrote C:\Users\user\Desktop\SOn H.g\class materials\AI application\keraal_pipeline\data\labels.csv (841 rows)
+test set (1A+2A) counts as (C, E1, E2, E3, excluded):
+  label_A: {'RTK': (73, 4, 6, 0, 18), 'ELK': (36, 0, 43, 0, 13), 'CTK': (61, 26, 1, 17, 3)}
+  label_B: {'RTK': (58, 5, 27, 0, 11), 'ELK': (17, 0, 60, 0, 15), 'CTK': (63, 32, 4, 6, 3)}
+  label_consensus: {'RTK': (53, 3, 6, 0, 39), 'ELK': (15, 0, 41, 0, 36), 'CTK': (55, 21, 1, 6, 25)}
+  label_A_ctk13: {'RTK': (73, 4, 6, 0, 18), 'ELK': (36, 0, 43, 0, 13), 'CTK': (61, 0, 1, 0, 3)}
+  CTK with E1+E3 merged (annotator A): {'E13': 43, 'C': 61, 'E2': 1, 'EXCL': 3}
+exclusion reasons (A, B): {('', 'incomplete'): 2, ('incomplete', 'incomplete'): 23, ('motionless', 'motionless'): 2, ('', 'other_error'): 1, ('incomplete', ''): 8, ('', 'incorrect_without_type'): 1, ('other_error', ''): 1}
+CHECK PASSED
+=== preprocess.py
+wrote data/skeleton_raw.npz and data/skeleton_T100.npz: raw/norm (841, 100, 25, 3)
+Group 3 recordings pending (no skeleton yet): 0
+mean SpineBase position in camera space (x, y, z) m:
+  group 1A         n=250  [ 0.1  -0.19  3.2 ]  sd [0.25 0.18 0.23]
+  group 2A         n= 51  [ 0.03 -0.31  2.91]  sd [0.13 0.18 0.35]
+  group 3 (sample) n=  6  [ 0.31 -0.55  3.06]  sd [0.01 0.02 0.01]
+  group 1A: heading -2.4 deg (sd 4.3), torso 0.464 m (sd 0.024), frames 283-676
+  group 2A: heading -1.7 deg (sd 2.8), torso 0.475 m (sd 0.026), frames 288-871
+  group 3 (sample, n=6): heading -6.5 deg, torso 0.448 m
+CHECK PASSED
+=== features.py
+wrote data/features_T100.npz: {'R0': 75, 'R1': 75, 'R2': 10, 'R3': 20, 'R4': 24, 'Rerr': 9, 'Rerr_d': 9}
+plane tags in R4: {'frontal': 2, 'horizontal': 2, 'invariant': 17, 'sagittal': 2, 'vertical': 1}
+sanity (annotator A, median per class; summary over the recording):
+  RTK trunk_rotation range: C 44.96 (n=118)  vs  E2 29.04 (n=51)
+  ELK spine_tilt_frontal range: C 28.11 (n=81)  vs  E2 17.61 (n=88)
+  CTK shoulder_elev_L max: C 125.09 (n=106)  vs  E1 96.50 (n=71)
+  CTK shoulder_elev_L max: C 125.09 (n=106)  vs  E3 117.89 (n=62)
+  CTK wrist_dist_over_shoulder_width max: C 2.56 (n=106)  vs  E2 2.37 (n=46)
+CHECK PASSED
+=== splits.py
+wrote data/splits.json
+P1: train 540 (G3) -> test 1A 250, 2A 51
+P2 folds (held out, n test): [('G3-P1', 180), ('G3-P2', 180), ('G3-P3', 180)]
+P4 folds (held out, n test): [('G1A-R1-Brest', 42), ('G1A-R2-Brest', 41), ('G1A-R3-Brest', 41), ('G1A-R4-Roscoff', 42), ('G1A-R5-Roscoff', 42), ('G1A-R6-Roscoff', 42)]
+P3 seed 0: random test 185 (shares 7 participants with train) | grouped test 185 (23%) participants ['G2A-S4-Roscoff', 'G3-P2']
+P3 seed 1: random test 166 (shares 9 participants with train) | grouped test 166 (21%) participants ['G1A-R1-Brest', 'G1A-R3-Brest', 'G1A-R4-Roscoff', 'G1A-R6-Roscoff', 'G2A-S1-Brest', 'G2A-S4-Roscoff']
+P3 seed 2: random test 202 (shares 8 participants with train) | grouped test 202 (25%) participants ['G2A-S1-Roscoff', 'G2A-S5-Brest', 'G2A-S6-Roscoff', 'G3-P1']
+P3 seed 3: random test 229 (shares 14 participants with train) | grouped test 229 (28%) participants ['G1A-R5-Roscoff', 'G2A-S4-Roscoff', 'G2A-S5-Brest', 'G3-P1']
+P3 seed 4: random test 234 (shares 16 participants with train) | grouped test 234 (29%) participants ['G1A-R6-Roscoff', 'G2A-S3-Roscoff', 'G2A-S4-Roscoff', 'G2A-S6-Roscoff', 'G3-P2']
+CHECK PASSED
+=== evaluate.py
+wrote results/baseline_majority_P1.csv
+majority baseline on P1 test sets (test-majority class predicted everywhere):
+  A RTK: n= 83 acc 88.0%  macro-F1 0.312 [0.285, 0.494]  bal-acc 0.333  support {'C': 73, 'E1': 4, 'E2': 6}
+  A ELK: n= 79 acc 54.4%  macro-F1 0.352 [0.161, 0.453]  bal-acc 0.500  support {'C': 36, 'E2': 43}
+  A CTK: n=105 acc 58.1%  macro-F1 0.184 [0.152, 0.399]  bal-acc 0.250  support {'C': 61, 'E1': 26, 'E2': 1, 'E3': 17}
+  B RTK: n= 90 acc 64.4%  macro-F1 0.261 [0.201, 0.413]  bal-acc 0.333  support {'C': 58, 'E1': 5, 'E2': 27}
+  B ELK: n= 77 acc 77.9%  macro-F1 0.438 [0.343, 0.485]  bal-acc 0.500  support {'C': 17, 'E2': 60}
+  B CTK: n=105 acc 60.0%  macro-F1 0.187 [0.151, 0.306]  bal-acc 0.250  support {'C': 63, 'E1': 32, 'E2': 4, 'E3': 6}
+CHECK PASSED
+=== rf_baseline.py
+end-to-end run on P4: 30 runs
+CHECK PASSED
+=== trial_confound.py
+wrote results/trial_confound.csv, results/trial_confound_features.csv
+  CTK R0    within LDA acc 1.00 (perm p95 0.49) CUE | FDR features 164/525 ["min(KneeLeft_x)", "max(AnkleLeft_x)", "p10(KneeRight_x)", "p10(KneeLeft_x)", "mean(KneeLeft_x)"]
+  CTK R0    across LDA acc 0.38 (perm p95 0.42) | FDR features 164/525 ["min(KneeLeft_x)", "max(AnkleLeft_x)", "p10(KneeRight_x)", "p10(KneeLeft_x)", "mean(KneeLeft_x)"]
+  CTK R1    within LDA acc 1.00 (perm p95 0.49) CUE | FDR features 152/525 ["mean(AnkleRight_x)", "p10(AnkleRight_x)", "min(AnkleRight_x)", "mean(FootRight_x)", "p10(FootRight_x)"]
+  CTK R1    across LDA acc 0.22 (perm p95 0.42) | FDR features 152/525 ["mean(AnkleRight_x)", "p10(AnkleRight_x)", "min(AnkleRight_x)", "mean(FootRight_x)", "p10(FootRight_x)"]
+  CTK R2    within LDA acc 0.87 (perm p95 0.47) CUE | FDR features 14/70 ["mean(spine_tilt_sagittal)", "mean(spine_tilt_frontal)", "p10(spine_tilt_sagittal)", "p10(spine_tilt_frontal)", "p90(shoulder_elev_R)"]
+  CTK R2    across LDA acc 0.33 (perm p95 0.44) | FDR features 14/70 ["mean(spine_tilt_sagittal)", "mean(spine_tilt_frontal)", "p10(spine_tilt_sagittal)", "p10(spine_tilt_frontal)", "p90(shoulder_elev_R)"]
+  CTK Rerr  within LDA acc 0.87 (perm p95 0.47) CUE | FDR features 12/63 ["p90(wrist_dist_over_shoulder_width)", "sd(wrist_dist_over_shoulder_width)", "range(wrist_dist_over_shoulder_width)", "max(wrist_dist_over_shoulder_width)", "mean(spine_tilt_frontal)"]
+  CTK Rerr  across LDA acc 0.31 (perm p95 0.44) | FDR features 12/63 ["p90(wrist_dist_over_shoulder_width)", "sd(wrist_dist_over_shoulder_width)", "range(wrist_dist_over_shoulder_width)", "max(wrist_dist_over_shoulder_width)", "mean(spine_tilt_frontal)"]
+  ELK R0    within LDA acc 1.00 (perm p95 0.49) CUE | FDR features 214/525 ["mean(SpineShoulder_z)", "mean(Neck_z)", "sd(FootRight_z)", "p90(ElbowRight_y)", "min(FootRight_z)"]
+  ELK R0    across LDA acc 0.31 (perm p95 0.40) | FDR features 214/525 ["mean(SpineShoulder_z)", "mean(Neck_z)", "sd(FootRight_z)", "p90(ElbowRight_y)", "min(FootRight_z)"]
+  ELK R1    within LDA acc 0.98 (perm p95 0.47) CUE | FDR features 39/525 ["mean(FootRight_x)", "max(FootRight_x)", "min(FootRight_z)", "min(HipRight_x)", "p10(HipRight_x)"]
+  ELK R1    across LDA acc 0.22 (perm p95 0.42) | FDR features 39/525 ["mean(FootRight_x)", "max(FootRight_x)", "min(FootRight_z)", "min(HipRight_x)", "p10(HipRight_x)"]
+  ELK R2    within LDA acc 0.82 (perm p95 0.47) CUE | FDR features 13/70 ["p10(neck_angle)", "p10(elbow_flex_R)", "min(neck_angle)", "min(arm_spread_L)", "min(elbow_flex_L)"]
+  ELK R2    across LDA acc 0.31 (perm p95 0.42) | FDR features 13/70 ["p10(neck_angle)", "p10(elbow_flex_R)", "min(neck_angle)", "min(arm_spread_L)", "min(elbow_flex_L)"]
+  ELK Rerr  within LDA acc 0.91 (perm p95 0.47) CUE | FDR features 1/63 ["p10(elbow_flex_R)"]
+  ELK Rerr  across LDA acc 0.20 (perm p95 0.42) | FDR features 1/63 ["p10(elbow_flex_R)"]
+  RTK R0    within LDA acc 1.00 (perm p95 0.49) CUE | FDR features 297/525 ["p10(ElbowLeft_x)", "mean(SpineMid_y)", "p10(SpineMid_y)", "min(ElbowLeft_x)", "p10(HandTipLeft_x)"]
+  RTK R0    across LDA acc 0.29 (perm p95 0.38) | FDR features 297/525 ["p10(ElbowLeft_x)", "mean(SpineMid_y)", "p10(SpineMid_y)", "min(ElbowLeft_x)", "p10(HandTipLeft_x)"]
+  RTK R1    within LDA acc 1.00 (perm p95 0.49) CUE | FDR features 175/525 ["min(AnkleRight_x)", "p10(AnkleRight_x)", "mean(AnkleRight_x)", "max(AnkleRight_y)", "p90(AnkleRight_y)"]
+  RTK R1    across LDA acc 0.31 (perm p95 0.40) | FDR features 175/525 ["min(AnkleRight_x)", "p10(AnkleRight_x)", "mean(AnkleRight_x)", "max(AnkleRight_y)", "p90(AnkleRight_y)"]
+  RTK R2    within LDA acc 0.87 (perm p95 0.47) CUE | FDR features 27/70 ["range(neck_angle)", "max(neck_angle)", "p90(neck_angle)", "sd(neck_angle)", "min(neck_angle)"]
+  RTK R2    across LDA acc 0.40 (perm p95 0.42) | FDR features 27/70 ["range(neck_angle)", "max(neck_angle)", "p90(neck_angle)", "sd(neck_angle)", "min(neck_angle)"]
+  RTK Rerr  within LDA acc 0.76 (perm p95 0.49) CUE | FDR features 14/63 ["min(wrist_dist_over_shoulder_width)", "mean(wrist_dist_over_shoulder_width)", "min(wrist_height_R)", "max(wrist_dist_over_shoulder_width)", "p10(wrist_height_R)"]
+  RTK Rerr  across LDA acc 0.44 (perm p95 0.44) | FDR features 14/63 ["min(wrist_dist_over_shoulder_width)", "mean(wrist_dist_over_shoulder_width)", "min(wrist_height_R)", "max(wrist_dist_over_shoulder_width)", "p10(wrist_height_R)"]
+dry run on 1A CTK (pseudo-trials = recording order thirds, R2): within acc 0.32 / FDR features 1, across acc 0.31 / FDR features 1
+self-test: dense cue acc 0.93, noise acc 0.24, sparse cue found True, noise features flagged 0, perm p95 on noise 0.51
+CHECK PASSED
+=== label_clustering.py
+wrote results/label_clustering.csv and results/label_clustering.md
+  1A     A RTK: N  65,  6 people, error rate 0.11, ICC +0.29, DEFF 3.8, effective N 17.3, pure 4/6
+  1A     A ELK: N  73,  6 people, error rate 0.56, ICC +0.86, DEFF 10.5, effective N 7.0, pure 6/6
+  1A     A CTK: N  84,  6 people, error rate 0.46, ICC +0.23, DEFF 4.0, effective N 20.9, pure 0/6
+  1A     B RTK: N  71,  6 people, error rate 0.39, ICC +0.48, DEFF 6.2, effective N 11.5, pure 3/6
+  1A     B ELK: N  71,  6 people, error rate 0.82, ICC +0.53, DEFF 6.7, effective N 10.6, pure 3/6
+  1A     B CTK: N  83,  6 people, error rate 0.46, ICC +0.29, DEFF 4.7, effective N 17.8, pure 0/6
+  1A+2A  A RTK: N  83, 11 people, error rate 0.12, ICC +0.29, DEFF 2.8, effective N 29.2, pure 6/10
+  1A+2A  A ELK: N  79,  8 people, error rate 0.54, ICC +0.81, DEFF 8.0, effective N 9.9, pure 6/7
+  1A+2A  A CTK: N 105, 11 people, error rate 0.42, ICC +0.27, DEFF 3.2, effective N 32.7, pure 2/10
+  1A+2A  B RTK: N  90, 11 people, error rate 0.36, ICC +0.47, DEFF 4.2, effective N 21.2, pure 5/10
+  1A+2A  B ELK: N  77,  8 people, error rate 0.78, ICC +0.51, DEFF 5.3, effective N 14.5, pure 3/7
+  1A+2A  B CTK: N 105, 11 people, error rate 0.40, ICC +0.32, DEFF 3.6, effective N 28.8, pure 2/10
+CHECK PASSED
+=== person_confound.py
+CHECK PASSED
+=== permutation_null.py
+self-test: label-encoding feature 0.96, noise 0.49 vs null p95 0.68
+end-to-end task null: rf[100 trees] 0.706, logreg(C=0.1) 0.572
+end-to-end: A ELK camera observed 0.583, null p95 0.593 (8 perms)
+CHECK PASSED
+=== compare_reps.py
+216 saved prediction sets re-scored; 8 paired comparisons on A CTK (200 resamples)
+CHECK PASSED
+=== run_experiment.py
+smoke config: 6 runs; reproduces rf_baseline on matching settings
+CHECK PASSED
+=== confirmatory.py
+dry run H1 (Rerr > permutation null): observed +0.669, p 0.010, Holm 0.030
+dry run H2 (R1 > R0): observed +0.040, p 0.050, Holm 0.100
+dry run H3 (Rerr > R1): observed -0.011, p 0.535, Holm 0.535
+CHECK PASSED
+=== figures.py
+wrote results/figures/fig1_label_clustering.png, results/figures/fig1_label_clustering.pdf, results/figures/fig2_main_binary_P4.png, results/figures/fig2_main_binary_P4.pdf, results/figures/fig3_person_confound.png, results/figures/fig3_person_confound.pdf and results/tables.md
+CHECK PASSED
+=== inventory.py
+data root: E:\KERAAL_data\extracted
+wrote data/inventory.csv (2621 recordings)
+files per group and modality:
+  group 1A: kinect 250, blazepose 250, openpose 250, video 250, annotatorA 250, annotatorB 250
+  group 1B: kinect 1631, blazepose 1631, openpose 1631, video 1631, baseline_result 391
+  group 2A: kinect 51, blazepose 51, openpose 51, video 51, annotatorA 51, annotatorB 51
+  group 2B: kinect 149, blazepose 149, openpose 149, video 149
+  group 3 : kinect 540, blazepose 540, openpose 540, video 540, vicon 540
+ignored non-data files: 4 (readme_files_format.txt, res_res.txt)
+Kinect copies in raw/ compared with the full distribution: 841
+CHECK PASSED
+=== unit tests
+..........................                                               [100%]
+26 passed in 1.33s
+=== manifest.py
+46 outputs compared with the frozen manifest
+CHECK PASSED
+VERIFY PASSED: index.py, labels.py, preprocess.py, features.py, splits.py, evaluate.py, rf_baseline.py, trial_confound.py, label_clustering.py, person_confound.py, permutation_null.py, compare_reps.py, run_experiment.py, confirmatory.py, figures.py, inventory.py, unit tests, manifest.py

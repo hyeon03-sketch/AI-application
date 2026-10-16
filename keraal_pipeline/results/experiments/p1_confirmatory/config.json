@@ -1,0 +1,51 @@
+{
+ "name": "p1_confirmatory",
+ "_doc": "FROZEN by PREREGISTRATION.md before any Group 3 skeleton was seen. Do not edit; its SHA-256 is checked by tests/test_core.py. Exploratory variants go in a new config file.",
+ "protocols": [
+  "P1"
+ ],
+ "tasks": [
+  {
+   "name": "CTK_C_vs_E13_A",
+   "exercise": "CTK",
+   "label_col": "label_A_ctk13",
+   "classes": [
+    "C",
+    "E13"
+   ]
+  },
+  {
+   "name": "CTK_C_vs_E13_B",
+   "exercise": "CTK",
+   "label_col": "label_B_ctk13",
+   "classes": [
+    "C",
+    "E13"
+   ]
+  }
+ ],
+ "reps": [
+  "R0",
+  "R1",
+  "Rerr"
+ ],
+ "models": [
+  {
+   "type": "rf"
+  },
+  {
+   "type": "logreg",
+   "C": 0.1
+  },
+  {
+   "type": "majority"
+  }
+ ],
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ]
+}
