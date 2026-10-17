@@ -1,0 +1,26 @@
+{
+  "CTK": {
+    "threshold": 76.5267818100467,
+    "label_mode": "recording",
+    "feature": "excursion",
+    "signal": "arm_elev_min",
+    "suggested_error_types": {},
+    "suggested_body_parts": {}
+  },
+  "ELK": {
+    "threshold": 7.902806673411792,
+    "label_mode": "recording",
+    "feature": "excursion",
+    "signal": "lat_bend",
+    "suggested_error_types": {},
+    "suggested_body_parts": {}
+  },
+  "RTK": {
+    "threshold": 17.048940313287304,
+    "label_mode": "recording",
+    "feature": "excursion",
+    "signal": "rotation",
+    "suggested_error_types": {},
+    "suggested_body_parts": {}
+  }
+}
