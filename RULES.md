@@ -34,8 +34,8 @@ KERAAL 팀 저장소의 협업 규칙 / Cowork rules for the KERAAL team reposit
 | `keraal_pipeline/`, `README.md`, `RULES.md`, `.github/` | **코드 담당자 승인 필수** (GitHub가 강제) / **code-owner approval required** (enforced by GitHub) | 승인 후 본인 / yourself, after approval |
 | 루트의 PDF·문서 / root PDFs and documents | 다른 팀원 1명 (약속) / one other member (by agreement) | 승인 후 본인 / yourself, after approval |
 
-- **KR.** 코드 담당자는 `.github/CODEOWNERS`에 적혀 있다. 지금은 Sonny이고, 팀원이 초대를 수락하면 로시니(코드)와 의진(데이터)을 추가한다.
-  **EN.** Code owners are listed in `.github/CODEOWNERS`. For now it's Sonny; Roshini (code) and Euijin (data) are added once they accept their invites.
+- **KR.** 코드 담당자는 `.github/CODEOWNERS`에 적혀 있다: Sonny(`hyeon03-sketch`), 로시니(`Roshini-24p`), 의진(`EJGitAdmin`). 이 중 **본인이 아닌 한 명**이 승인하면 된다. 코드는 로시니, 데이터 처리는 의진, 문서·규칙은 Sonny가 보는 것을 기본으로 한다.
+  **EN.** Code owners are listed in `.github/CODEOWNERS`: Sonny (`hyeon03-sketch`), Roshini (`Roshini-24p`), Euijin (`EJGitAdmin`). Approval from **any one owner other than the author** is enough. By default Roshini reviews code, Euijin reviews data processing, and Sonny reviews docs and rules.
 - **KR.** **웹사이트에서 고칠 때**: 연필 ✏️로 수정 → [Commit changes] → "Create a new branch for this commit and start a pull request" 선택 → [Propose changes] → [Create pull request] → 자기 폴더면 바로 [Merge pull request].
   **EN.** **Editing on the website**: pencil ✏️ → [Commit changes] → choose "Create a new branch for this commit and start a pull request" → [Propose changes] → [Create pull request] → if it's your own folder, [Merge pull request] right away.
 - **KR.** 남의 개인 폴더는 고치지 않는다. 의견은 PR 댓글이나 Issue로 남긴다.
