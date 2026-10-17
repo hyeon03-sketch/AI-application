@@ -1,0 +1,23 @@
+# 2시간 연구 루프 작업표 / 2-hour research loop queue
+
+Sonny가 요청한 자동 탐색 분석. 회차마다 아래 대기열에서 맨 위 "대기" 항목 하나를 진행한다.
+Automated exploratory analyses requested by Sonny. Each tick takes the top "queued" item.
+
+- 모든 결과는 **탐색(exploratory)**. 확증 설정 `configs/p1_confirmatory.json`은 건드리지 않는다.
+- 팀원 과제(R1–R4, U1–U4)는 하지 않는다. 겹치면 건너뛴다.
+- 결과는 `keraal_pipeline/explore/loop/`와 `PROGRESS.md`에, 커밋은 브랜치 `sonny/research-loop`의 PR 하나에 쌓는다. merge는 팀원 승인 후.
+
+## 대기열 / Queue
+
+| # | 상태 / Status | 과제 / Item | 왜 / Why |
+|---|---|---|---|
+| L1 | 대기 / queued | 연기 → 실제 방향의 AUC (G3로 학습한 RF·logreg의 확률로 1A·2A AUC, 주석자 A·B) / AUC for the acted → real direction | 기준점 가설: AUC가 높고 F1만 낮으면 "구분은 되고 기준점만 다르다" / threshold story: high AUC with low F1 = ranking works, threshold differs |
+| L2 | 대기 / queued | 확률 분포 비교: G3 학습 모델이 1A·2A 정상/오류에 주는 확률 분포와 최적 기준점 위치 / predicted-probability distributions and best threshold | L1의 그림 근거 / figure for L1 |
+| L3 | 대기 / queued | 백로그 13: pitch에 강한 feature만 vs 전체 R4, sim-to-real 격차 / pitch-robust features vs full R4 | 카메라 자세 차이가 원인인지 / is camera pose the cause? |
+| L4 | 대기 / queued | 백로그 24: 표현 쌍별 RF·logreg 차이의 부호 일치 요약 / sign agreement across models | 결론의 강건성 / robustness |
+| L5 | 대기 / queued | 백로그 6: 심각도(Small/Large)별 recall / recall by severity | 작은 오류를 놓치는지 / are small errors missed? |
+| L6 | 대기 / queued | 백로그 20: 녹화 길이와 오류의 관계 / recording length vs error | 길이 단서 점검 / length cue check |
+| L7 | 대기 / queued | 백로그 26: P1 confusion matrix와 sim-to-real 사다리 그림 / P1 confusion matrix and ladder figure | 발표·논문 그림 / figures |
+
+## 회차 기록 / Tick log
+
