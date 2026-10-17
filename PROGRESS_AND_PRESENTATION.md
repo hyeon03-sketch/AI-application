@@ -40,6 +40,7 @@
 | 10/08–10/09 | 2시간마다 재점검 14회 모두 통과(manifest 일치, 확증 결과 불변) / 14 two-hourly re-checks all passed (manifest match, confirmatory results unchanged) |
 | 10/12–10/13 | 팀 역할 문서, 프로젝트 개요 PDF, 팀원 Kinect 모델 보고서, 영상 확인 / team roles, project overview PDF, teammate's Kinect model report, video check |
 | 10/16 | 팀 회의: R1·R2·U1·U2 결과 받기, 연구 질문 확정, 슬라이드 분담 / team meeting: collect R1/R2/U1/U2, fix the research question, assign slides |
+| 10/16–10/17 | GitHub 저장소 개설(공개, `main` 보호), 의진·로시니 진행 내용 업로드 / GitHub repo set up (public, `main` protected), Euijin's and Roshini's progress uploaded |
 
 ## 5. 주요 결과 / Key results
 
@@ -81,18 +82,40 @@
   - 표본이 작다 / The sample is small.
   - R0(raw) RF 0.737이 왜 높은지는 아직 설명되지 않았다(R2에서 점검) / Why R0 (raw) RF scores 0.737 is still unexplained (checked in R2).
 
-### 5.3 진행 중 (10/16 마감) / In progress (due 10/16)
+### 5.3 팀원별 완료 현황 (2026-10-17) / Completed work by member (as of 2026-10-17)
 
-| ID | 담당 / Owner | 내용 / Item | 확인 기준 / Check |
+각자 폴더의 README에 자세히 정리했다 / Details are in each member's README.
+
+**의진 / Euijin** → [`members/euijin/`](members/euijin/) · 브랜치 / branch `euijin/progress-1016`
+
+| 완료 / Done | 결과 / Result |
+|---|---|
+| 데이터 정제 v1 (6주차) / data cleaning v1 (week 6) | 15 fps 프레임 단위 표: Kinect 841개 녹화·237,733프레임, BlazePose 835개·224,912프레임 + QC 리포트·메타테이블 / frame-level tables + QC reports and metatable |
+| 15 fps 시간축 확인 / 15 fps time base verified | Kinect 프레임 ÷ 주석자 B 종료 시간 = 15.00 (전 녹화). 영상 메타데이터의 10 fps는 틀림 / for every recording; the 10 fps in video metadata is wrong |
+| Kinect 규칙 기반 파일럿 (7주차, 탐색) / rule-based pilot (week 7, exploratory) | 관절각 1개 + 임계값, LOSO: AUC CTK 0.72 · ELK 0.74 · RTK 0.88 / one angle + one threshold |
+| 보고서 / reports | 중간 보고서 초안(영문), 파일럿 설명(한/영), 1–13주 계획 / midterm draft, pilot explainer, 13-week plan |
+
+**로시니 / Roshini** → [`members/roshini/`](members/roshini/) · 브랜치 / branch `roshini/kinect-model`
+
+| 완료 / Done | 결과 / Result |
+|---|---|
+| Kinect 초 단위 오류 탐지 모델, 방향 2 (탐색) / per-second Kinect model, Direction 2 (exploratory) | 1A + 2A 학습 → G3 시험(녹화 단위) AUC CTK 0.71 · ELK 0.77 · RTK 0.77, 모두 p = 0.001 / train real → test acted |
+| 코드 5개 + 보고서 25쪽 / 5 scripts + 25-page report | `members/roshini/Kinect_model/` |
+
+**두 결과가 팀 가설에 주는 것 / What the two results add to the team hypothesis**
+- 의진: CTK 최적 임계값이 환자 76.5° vs 건강인 45.5°로 약 30° 다르다 → 기준점이 데이터마다 다르다는 것을 각도로 보여 준다 / CTK best threshold differs by ~30° between patients and healthy adults.
+- 의진: 프레임 단위 오류 구간은 진폭보다 몸통 전후 기울기와 관련 있다(RTK Error1 AUC 0.86) → 보상 동작 가능성 / frame-level error spans relate to trunk lean (compensation).
+- 로시니: 실제 → 연기 방향은 오류를 구분한다 → 인식 능력은 있다 / real → acted works, so recognition ability is there.
+
+**아직 받지 못한 것 / Not received yet**
+
+| ID | 담당 / Owner | 내용 / Item | 상태 / Status |
 |---|---|---|---|
-| R1 | 로시니 / Roshini | 경계 보정 실험 / boundary calibration | 보정 전 = 확증 수치, 보정 후 > 순열 null 95% / pre = confirmatory numbers, post > null 95% |
-| R2 | 로시니 / Roshini | P1 raw 우위 점검 / P1 raw-advantage check | 정적 feature만으로 0.737이 나오는가 / do static features alone reach 0.737? |
-| U1 | 의진 / Uijin | 정제본 v2 / cleaned data v2 | Kinect 값 원본 일치, 2A S1 분리 / values match source, 2A S1 split |
-| U2 | 의진 / Uijin | `temporal_segments.csv` | Temporal error 98구간, 프레임 = 시간 × 15 / 98 segments, frame = time × 15 |
-| — | 조시 / Joshi | 캡처 10장 + 체크 답 / 10 captures + check answers | CTK E3 ≠ E1? ELK P2는 무엇이 다른가? / CTK E3 ≠ E1? What differs in ELK P2? |
-
-> 이 README 작성 시점에 R1·R2 결과 파일은 폴더에 없다. 회의 후 이 표를 갱신할 것.
-> R1/R2 result files were not yet in the folder when this README was written; update this table after the meeting.
+| R1 | 로시니 / Roshini | 경계 보정 실험 / threshold calibration | 미제출 / not submitted |
+| R2 | 로시니 / Roshini | P1 raw 우위 점검 / P1 raw-advantage check | 미제출 / not submitted |
+| U1 | 의진 / Euijin | 정제본 v2 (2A S1 분리 등 변경 4개) / cleaned v2 (4 changes) | v1 완료, v2 반영 여부 확인 필요 / v1 done, v2 to be confirmed |
+| U2 | 의진 / Euijin | `temporal_segments.csv` | 미제출 / not submitted |
+| — | 조시 / Joshi | 캡처 10장 + 체크 답 / captures + answers | 미제출 / not submitted |
 
 ## 6. 발표 흐름 / Presentation flow
 
