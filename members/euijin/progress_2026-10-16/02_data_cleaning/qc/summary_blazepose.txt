@@ -1,0 +1,65 @@
+파일: C:\EJ\Keraal\input_data\model_input_blazepose.csv
+행 수: 224912, 녹화 수: 835
+
+[1A/2A] 프레임 106440, 녹화 295
+in_annotated_span 별 프레임 수 / 오류 프레임 비율
+  span=no: 35598 프레임, 오류 비율 1.9%
+  span=yes: 70842 프레임, 오류 비율 9.4%
+
+[1A/2A, 주석 구간(yes)만] 오류유형 x 신체부위 프레임 수
+error_type  body_part
+Error1      BothArms      1877
+            LeftArm        140
+            RightArm       132
+Error2      Spine         3340
+Error3      BothArms      1148
+none        none         64205
+
+[1A/2A, 주석 구간(yes)만] 참가자 x 오류유형 프레임 수
+error_type       Error1  Error2  Error3   none
+participant_key                               
+1A_R1               435    1314       0   5775
+1A_R2               193       0     616   8437
+1A_R3               203     528     338   8427
+1A_R4               458     478       0   7537
+1A_R5                63     742       0  10148
+1A_R6                 0       0     194  10369
+2A_S1                79     278       0   6354
+2A_S2                64       0       0   1772
+2A_S3               199       0       0   2618
+2A_S4                 0       0       0   1631
+2A_S5                 0       0       0    721
+2A_S6               455       0       0    416
+
+[1A/2A] 운동 x 오류유형 프레임 수 (yes만)
+error_type     Error1  Error2  Error3   none
+exercise_code                               
+CTK              1609       0    1148  21141
+ELK                 0    2665       0  16089
+RTK               540     675       0  26975
+
+[잘린 스켈레톤] skeleton_truncated=yes 녹화 115 / 835
+group  skeleton_truncated
+1A     no                    181
+       yes                    63
+2A     no                     40
+       yes                    11
+3      no                    499
+       yes                    41
+
+[1A/2A 초 단위(완전한 초만)] 7035초, 오류 초 비율 6.9%
+sec_error_type  sec_body_part
+Error1          BothArms          125
+                LeftArm            11
+                RightArm            8
+Error2          Spine             226
+Error3          BothArms           91
+Other           BothArms           24
+none            none             6550
+
+[Group3 약라벨] 참가자 x 오류유형 프레임 수
+error_type       Error1  Error2  Error3   none
+participant_key                               
+3_P1               8669    8715    8717   8744
+3_P2              10627   10716   10501  10791
+3_P3              10339   10160   10220  10273
