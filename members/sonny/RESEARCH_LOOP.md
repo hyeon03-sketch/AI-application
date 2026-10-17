@@ -16,7 +16,7 @@ Automated exploratory analyses requested by Sonny. Each tick takes the top "queu
 | L3 | 완료 / done | 백로그 13: pitch에 강한 feature만 vs 전체 R4, sim-to-real 격차 / pitch-robust features vs full R4 | 카메라 자세 차이가 원인인지 / is camera pose the cause? |
 | L4 | 완료 / done | 백로그 24: 표현 쌍별 RF·logreg 차이의 부호 일치 요약 / sign agreement across models | 결론의 강건성 / robustness |
 | L5 | 완료 / done | 백로그 6: 심각도(Small/Large)별 recall / recall by severity | 작은 오류를 놓치는지 / are small errors missed? |
-| L6 | 대기 / queued | 백로그 20: 녹화 길이와 오류의 관계 / recording length vs error | 길이 단서 점검 / length cue check |
+| L6 | 완료 / done | 백로그 20: 녹화 길이와 오류의 관계 / recording length vs error | 길이 단서 점검 / length cue check |
 | L7 | 대기 / queued | 백로그 26: P1 confusion matrix와 sim-to-real 사다리 그림 / P1 confusion matrix and ladder figure | 발표·논문 그림 / figures |
 
 ## 회차 기록 / Tick log
@@ -26,3 +26,4 @@ Automated exploratory analyses requested by Sonny. Each tick takes the top "queu
 - 2026-10-17 · L3 완료: Rerr에서 손목 높이(vertical) 2개를 빼면 P1 오류 판정 0.92 → 0.82(RF), 0.70 → 0.48(logreg), F1 logreg 0.493 → 0.640. 하지만 P4도 떨어져(F1 0.650 → 0.552) 격차 축소의 절반은 성능 손실. R4는 변화 거의 없음. 팀원 새 결과 없음. 결과 `keraal_pipeline/explore/loop/l3_pitch_robust.md`
 - 2026-10-17 · L4 완료: P4 표현 쌍 84개 중 두 모델 같은 방향 43, 반대 17. P1 R0 우위는 RF에서만(AUC R0−R1 RF +0.21, logreg −0.15) → R2 결과 대기. R0 > R4는 일관. 팀원 새 결과 없음. 결과 `keraal_pipeline/explore/loop/l4_model_agreement.md`
 - 2026-10-18 · L5 완료: CTK는 Large recall > Small(P4 28개 중 25, 중앙값 +0.36; 단 Large 5개), ELK는 차이 없음(중앙값 −0.03). 팀원 새 결과 없음, 조시 초대 대기. 결과 `keraal_pipeline/explore/loop/l5_severity_recall.md`
+- 2026-10-18 · L6 완료: G3 녹화가 실제보다 1.3–2배 짧음. CTK 길이만 P4 F1 0.73–0.77이지만 AUC가 사람 안 순열 null 미달 → 사람 수준 교란. P1에서는 길이 무용. 팀원 새 결과 없음. 결과 `keraal_pipeline/explore/loop/l6_length.md`
