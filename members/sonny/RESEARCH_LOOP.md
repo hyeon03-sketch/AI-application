@@ -12,7 +12,7 @@ Automated exploratory analyses requested by Sonny. Each tick takes the top "queu
 | # | 상태 / Status | 과제 / Item | 왜 / Why |
 |---|---|---|---|
 | L1 | 완료 / done | 연기 → 실제 방향의 AUC (G3로 학습한 RF·logreg의 확률로 1A·2A AUC, 주석자 A·B) / AUC for the acted → real direction | 기준점 가설: AUC가 높고 F1만 낮으면 "구분은 되고 기준점만 다르다" / threshold story: high AUC with low F1 = ranking works, threshold differs |
-| L2 | 대기 / queued | 확률 분포 비교: G3 학습 모델이 1A·2A 정상/오류에 주는 확률 분포와 최적 기준점 위치 / predicted-probability distributions and best threshold | L1의 그림 근거 / figure for L1 |
+| L2 | 완료 / done | 확률 분포 비교: G3 학습 모델이 1A·2A 정상/오류에 주는 확률 분포와 최적 기준점 위치 / predicted-probability distributions and best threshold | L1의 그림 근거 / figure for L1 |
 | L3 | 대기 / queued | 백로그 13: pitch에 강한 feature만 vs 전체 R4, sim-to-real 격차 / pitch-robust features vs full R4 | 카메라 자세 차이가 원인인지 / is camera pose the cause? |
 | L4 | 대기 / queued | 백로그 24: 표현 쌍별 RF·logreg 차이의 부호 일치 요약 / sign agreement across models | 결론의 강건성 / robustness |
 | L5 | 대기 / queued | 백로그 6: 심각도(Small/Large)별 recall / recall by severity | 작은 오류를 놓치는지 / are small errors missed? |
@@ -22,3 +22,4 @@ Automated exploratory analyses requested by Sonny. Each tick takes the top "queu
 ## 회차 기록 / Tick log
 
 - 2026-10-17 · L1 완료: Rerr RF AUC 0.674 (null 0.629, p 0.002) vs F1@0.5 0.404, 오류 판정 92% → 순위는 우연 이상, 기준점이 문제. RF R1은 null 미만, 2A는 오류 5개뿐. 결과 `keraal_pipeline/explore/loop/l1_acted_to_real_auc.md`
+- 2026-10-17 · L2 완료: Rerr RF에서 실제 정상의 P(E13) 중앙값 0.88(G3 정상 0.33, G3 오류 0.85), 기준점 G3 0.55 vs 실제(oracle) 0.93. logreg R1은 이동 작음, RF R1은 구분 실패. 팀원 새 결과 없음. 결과 `keraal_pipeline/explore/loop/l2_probability_shift.{md,png}`
