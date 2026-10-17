@@ -1,6 +1,11 @@
-# 이 경로를 바꾸는 PR은 아래 담당자의 승인이 필요하다 / PRs touching these paths need approval from the owners below
-# 팀원이 초대를 수락하면 추가: 코드 = Roshini, 데이터 처리 = Euijin
-/keraal_pipeline/ @hyeon03-sketch
-/README.md @hyeon03-sketch
-/RULES.md @hyeon03-sketch
-/.github/ @hyeon03-sketch
+# 이 경로를 바꾸는 PR은 아래 담당자 중 한 명의 승인이 필요하다 (본인 PR은 본인이 승인할 수 없다)
+# PRs touching these paths need approval from one of the owners below (you cannot approve your own PR)
+# Sonny = hyeon03-sketch · Roshini (코드 / code) = Roshini-24p · Euijin (데이터 / data) = EJGitAdmin
+
+# 공용 코드 / shared code
+/keraal_pipeline/ @hyeon03-sketch @Roshini-24p @EJGitAdmin
+
+# 저장소 규칙과 첫 화면 / repo rules and front page
+/README.md @hyeon03-sketch @Roshini-24p @EJGitAdmin
+/RULES.md @hyeon03-sketch @Roshini-24p @EJGitAdmin
+/.github/ @hyeon03-sketch @Roshini-24p @EJGitAdmin
