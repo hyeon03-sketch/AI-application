@@ -21,7 +21,7 @@ Automated exploratory analyses requested by Sonny. Each tick takes the top "queu
 | L11 | 완료 / done | L1–L7 결과 한 장 요약(발표·보고서용 그림 묶음) / one-page summary of L1–L7 | 발표 준비 / presentation |
 | L8 | 완료 / done | ELK·RTK로 L1 확장: 연기 → 실제 AUC와 오류 판정 비율 / extend L1 to ELK and RTK | 기준점 이동이 CTK만의 일인지 / is the shift CTK-only? |
 | L9 | 완료 / done | 환자(1A) vs 건강인(2A) 확률 이동 비교: 같은 P1 모델에서 두 집단 정상의 P(E13) 차이 / patient vs healthy shift | 이동이 "환자라서"인지 "세션·장소 차이"인지 / patient effect or session effect? |
-| L10 | 제안 / proposed | 주석자 A·B 일치도(Cohen κ, 운동별)를 성능 상한으로 / annotator agreement as a ceiling | 모델 점수를 어디까지 기대할 수 있나 / how high can a model go? |
+| L10 | 완료 / done | 주석자 A·B 일치도(Cohen κ, 운동별)를 성능 상한으로 / annotator agreement as a ceiling | 모델 점수를 어디까지 기대할 수 있나 / how high can a model go? |
 
 ## 회차 기록 / Tick log
 
@@ -36,3 +36,4 @@ Automated exploratory analyses requested by Sonny. Each tick takes the top "queu
 - 2026-10-18 · L11 완료: 4칸 요약 그림 + 핵심 메시지 7개(한/영)와 발표 사용법. 다음은 L8. 결과 `keraal_pipeline/explore/loop/l11_summary.{png,md}`
 - 2026-10-18 · L8 완료: RTK도 CTK처럼 순위는 null 이상(Rerr RF AUC 0.922)·과잉 판정(47–86% vs 12–36%). ELK는 과잉 판정 없음. → 기준점 이동은 3개 운동 중 2개. 대기열 비었음(L9·L10 제안 유지). 결과 `keraal_pipeline/explore/loop/l8_other_exercises.md`
 - 2026-10-18 · L9 완료(Sonny 승인): CTK는 건강인 2A 정상도 환자만큼 밀림(Rerr RF 0.90 vs 0.88, G3 0.33, p ≥ 0.42) → 세션 효과. RTK는 일부 환자 효과(Rerr RF A p 0.039)지만 장소와 구분 불가. 한계 6개 명시. 결과 `keraal_pipeline/explore/loop/l9_patient_vs_session.md`
+- 2026-10-19 · L10 완료(Sonny 승인): κ(A,B) CTK 0.60·ELK 0.41·RTK 0.28, 사람 상한 Macro-F1 0.62·0.68·0.40. CTK는 모델이 한참 아래(0.33–0.42), ELK·RTK는 모델이 상한에 닿지만 다른 주석자 기준 κ 급락 → 주석자 습관 학습. ELK·RTK의 A·B 일치는 사람 단위(null과 같음). 팀원 새 결과 없음. 결과 `keraal_pipeline/explore/loop/l10_annotator_ceiling.md`
