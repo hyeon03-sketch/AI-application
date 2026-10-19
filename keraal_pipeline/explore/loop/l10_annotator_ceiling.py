@@ -15,7 +15,8 @@ Per exercise (CTK, ELK, RTK):
                 RF P4 models from rf_P4_preds.csv (5 seeds): Macro-F1 and kappa against the annotator they were
                 trained on and kappa against the OTHER annotator, per representation.
   binary        CTK C vs E1+E3, ELK C vs E2, RTK C vs E1+E2: kappa(A, B), Macro-F1 B->A and A->B;
-                model P4 Macro-F1 from results/confirmatory_dryrun_main_binary_P4.csv (Rerr, H1 rows, CTK and ELK).
+                model P4 Macro-F1 (Rerr): CTK from results/confirmatory_dryrun_main_binary_P4.csv (H1 rows),
+                ELK and RTK from explore/loop/l12_binary_elk_rtk.csv (loop L12).
 Aggregates only. Outputs: explore/loop/l10_annotator_ceiling.{csv,md}
 Usage: python explore/loop/l10_annotator_ceiling.py [--check]
 """
@@ -128,6 +129,13 @@ def binary_model(root: Path):
             if r["hypothesis"] == "H1":
                 ex, _, _, _, ann = r["task"].split("_")
                 out[(ex, ann, r["model"])] = (float(r["observed"]), float(r["null_p95"]), int(r["participants"]))
+    l12 = HERE / "l12_binary_elk_rtk.csv"  # ELK and RTK binary P4 scores (loop L12), Rerr rows
+    if l12.exists():
+        with l12.open(encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                if r["rep"] == "Rerr":
+                    out[(r["exercise"], r["annotator"], r["model"])] = (float(r["macro_f1"]), float(r["null_p95"]),
+                                                                        int(r["participants"]))
     return out
 
 
@@ -179,7 +187,7 @@ def write(human, models, binm, out: Path):
             L.append(f"| {ex} | {ann} | **{f(ceil)}** | {f(maj['macro_f1'])} | {best['rep']} | **{f(best['macro_f1'])}** | "
                      f"{f(best['kappa_own'])} | {f(best['kappa_other'])} | {f(rerr['macro_f1'])} | {best['n']} ({best['participants']}) |")
     L += ["", "## 3. 이진 과제: 모델(P4 Rerr) vs 사람 상한 / binary task", "",
-          "ELK·RTK 이진 과제는 main_binary P4에 없어 모델 칸이 비어 있다(—).", "",
+          "CTK는 확증 dry-run(main_binary), ELK·RTK는 루프 L12(`l12_binary_elk_rtk.md`, 모든 표현은 그 파일)의 Rerr 값.", "",
           "| 운동 과제 | 주석자 | 사람 상한 Macro-F1 | κ(A,B) | 다수 클래스 | RF Rerr (null p95) | logreg Rerr (null p95) | 사람 수 |",
           "|---|---|---|---|---|---|---|---|"]
     for ex in EXERCISES:

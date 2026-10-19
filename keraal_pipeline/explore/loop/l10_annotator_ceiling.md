@@ -35,15 +35,15 @@ Annotator B is scored as a "prediction" of A (and vice versa) on the same record
 
 ## 3. 이진 과제: 모델(P4 Rerr) vs 사람 상한 / binary task
 
-ELK·RTK 이진 과제는 main_binary P4에 없어 모델 칸이 비어 있다(—).
+CTK는 확증 dry-run(main_binary), ELK·RTK는 루프 L12(`l12_binary_elk_rtk.md`, 모든 표현은 그 파일)의 Rerr 값.
 
 | 운동 과제 | 주석자 | 사람 상한 Macro-F1 | κ(A,B) | 다수 클래스 | RF Rerr (null p95) | logreg Rerr (null p95) | 사람 수 |
 |---|---|---|---|---|---|---|---|
 | CTK C vs E13 | A | **0.86** | 0.72 | 0.36 | 0.67 (0.58) | 0.57 (0.57) | 6 |
 | CTK C vs E13 | B | **0.86** | 0.72 | 0.36 | 0.61 (0.56) | 0.73 (0.60) | 6 |
-| ELK C vs E2 | A | **0.68** | 0.41 | 0.37 | — | — | 6 |
-| ELK C vs E2 | B | **0.68** | 0.41 | 0.45 | — | — | 6 |
-| RTK C vs E1+E2 | A | **0.61** | 0.30 | 0.47 | — | — | 6 |
-| RTK C vs E1+E2 | B | **0.61** | 0.30 | 0.37 | — | — | 6 |
+| ELK C vs E2 | A | **0.68** | 0.41 | 0.37 | 0.21 (0.62) | 0.28 (0.63) | 6 |
+| ELK C vs E2 | B | **0.68** | 0.41 | 0.45 | 0.50 (0.53) | 0.75 (0.66) | 6 |
+| RTK C vs E1+E2 | A | **0.61** | 0.30 | 0.47 | 0.47 (0.54) | 0.45 (0.63) | 6 |
+| RTK C vs E1+E2 | B | **0.61** | 0.30 | 0.37 | 0.64 (0.66) | 0.58 (0.70) | 6 |
 
 *탐색 결과. 확증 설정·결과는 바꾸지 않았다. 집계값만 저장.* / *Exploratory; aggregates only.*
