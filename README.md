@@ -19,7 +19,7 @@ AI application 수업 팀 프로젝트 저장소 / Team project repository for t
 | Sonny | `hyeon03-sketch` | 팀장, 저장소 관리 / lead, repo owner | [`members/sonny/`](members/sonny/) | `sonny/` |
 | Euijin (의진) | `EJGitAdmin` | 데이터 / data (U1–U4) | [`members/euijin/`](members/euijin/) | `euijin/` |
 | Roshini (로시니) | `Roshini-24p` | 프로그래밍 / programming (R1–R4) | [`members/roshini/`](members/roshini/) | `roshini/` |
-| Joshi (조시) | (초대 전 / not yet) | 관찰·이해 / observation & understanding | [`members/joshi/`](members/joshi/) | `joshi/` |
+| Joshi (조시) | `josiet518` | 관찰·이해 / observation & understanding | [`members/joshi/`](members/joshi/) | `joshi/` |
 
 **KR.** 개인 폴더는 각자의 작업 공간이다(메모, 초안, 시험 코드). 팀이 함께 쓰는 코드는 `keraal_pipeline/`에 있다. 개인 폴더에서 다듬은 코드를 팀 코드로 옮길 때는 Pull Request로 올린다. 각 개인 폴더의 `README.md`에 이번 주 할 일과 결과 링크를 적는다.
 
