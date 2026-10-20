@@ -1,6 +1,6 @@
 # KERAAL 파이프라인 진행 기록
 
-설계 문서: `../KERAAL_Pipeline_KR.pdf`.
+설계 문서: `../docs/KERAAL_Pipeline_KR.pdf`.
 
 > **현재 상태 (2026-10-09): 확증 분석 완료, 재점검 중단(14회 모두 통과).** Group 3를 넣어 전체 검증을 통과했고, 사전 등록한 확증 분석을 실행했다(H1-H3 모두 지지되지 않음). 결과는 PREREGISTRATION.md "Results"와 아래 회차 기록에 있다. 재점검 루프는 사용자 요청으로 해제했다.
 전체 검증 명령: `python src/verify.py` (모든 단계 `--check` → 단위 테스트 → 결과 해시 비교)
