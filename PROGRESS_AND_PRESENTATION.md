@@ -1,7 +1,7 @@
 # KERAAL 재활 운동 오류 분류 — 진행 상황과 발표 흐름 / Progress and Presentation Flow
 
 작성일 / Written: 2026-10-16 (중간 발표 전 마지막 팀 회의일 / last team meeting before the midterm presentation)
-팀 / Team: 팀장 (lead) · 의진 Uijin (데이터 / data) · 로시니 Roshini (프로그래밍 / programming) · 조시 Joshi (이해·영상 확인 / understanding & video checks)
+팀 / Team: 팀장 (lead) · 의진 Uijin (데이터 / data) · 로시니 Roshini (프로그래밍 / programming) · 조시 Joshi (연구 배경 / research background)
 
 ---
 
@@ -61,8 +61,8 @@
 
 - **KR.** 모델이 테스트 녹화의 **92–97%를 오류로 판정**했다(실제 오류 비율 41%).
   **EN.** The model labelled **92–97% of test recordings as errors** (true error rate 41%).
-- **KR.** **반대 방향은 된다**: 1A·2A로 학습하고 G3로 시험하면(초 단위) AUC 0.71–0.77이다 (`KERAAL_Kinect_Model_Report.pdf`).
-  **EN.** **The reverse direction works**: training on 1A/2A and testing on G3 (per second) gives AUC 0.71–0.77 (`KERAAL_Kinect_Model_Report.pdf`).
+- **KR.** **반대 방향은 된다**: 1A·2A로 학습하고 G3로 시험하면(초 단위) AUC 0.71–0.77이다 (`members/roshini/Kinect_model/KERAAL_Kinect_Model_Report.pdf`).
+  **EN.** **The reverse direction works**: training on 1A/2A and testing on G3 (per second) gives AUC 0.71–0.77 (`members/roshini/Kinect_model/KERAAL_Kinect_Model_Report.pdf`).
 - **KR.** 기준점 이동 근거:
   - 어깨 거상 최대값은 G3 정상 126.9° / G3 오류 111.9° / 1A 정상 121.6° / 1A 오류 113.5°다.
   - CTK E1 손목 높이는 연기 정상 0.78 / 연기 오류 0.19 / 환자 정상 0.49 / 환자 오류 0.37이다.
@@ -115,34 +115,61 @@
 | R2 | 로시니 / Roshini | P1 raw 우위 점검 / P1 raw-advantage check | 미제출 / not submitted |
 | U1 | 의진 / Euijin | 정제본 v2 (2A S1 분리 등 변경 4개) / cleaned v2 (4 changes) | v1 완료, v2 반영 여부 확인 필요 / v1 done, v2 to be confirmed |
 | U2 | 의진 / Euijin | `temporal_segments.csv` | 미제출 / not submitted |
-| — | 조시 / Joshi | 캡처 10장 + 체크 답 / captures + answers | 미제출 / not submitted |
+| — | 조시 / Joshi | 캡처 10장 + 체크 답 / captures + answers | 취소 → 중간발표 1절(연구 배경)로 대체 / cancelled → replaced by midterm §1 (research background) |
 
-## 6. 발표 흐름 / Presentation flow
+## 6. 중간발표 계획 / Midterm presentation plan
 
-**팀장 제안 연구 질문 / Proposed message**
-> **KR.** "연기 데이터로 배운 모델이 실패한 이유는 인식 능력이 아니라 판정 기준점의 차이다."
-> **EN.** "The model trained on acted data failed not because it cannot recognise errors, but because its decision threshold differs."
+**30분, 6절, 절마다 담당자 / 30 minutes, 6 sections, one owner each** (팀 계획 PDF 2개 기준 / from the team's two plan PDFs)
 
-흐름 / Flow: 처음 질문 → 사전 등록 시험(실패) → 원인 분석(기준점) → 보정 실험(R1)으로 확인 중. 실패를 숨기지 않고 사전 등록을 강점으로 보여 준다.
-Original question → pre-registered test (failed) → cause analysis (threshold) → being checked with the calibration experiment (R1). We show the failure openly and present the pre-registration as a strength.
+**제목 / Title.** A program that enables self-feedback for three types of exercises (CTK, ELK, RTK) for lower back pain.
 
-- R1에서 보정 후 성능이 회복되면 "기준점 차이가 주원인"이라고 말한다 / If performance recovers after calibration in R1 → "the threshold shift is the main cause".
-- 회복이 약하면 "기준점 가설은 확인 중"으로 낮춘다 / If recovery is weak → "the threshold hypothesis is still being tested".
-
-**슬라이드 구성 (15분 가정) / Slide plan (assuming 15 min)**
-
-| # | 내용 / Content | 근거 / Source |
+| 절 / § | 내용 / Content | 담당 / Owner |
 |---|---|---|
-| 1 | 문제: 집에서 하는 재활, 틀려도 알려 줄 사람이 없음 / Problem: home rehab, no one to correct you | Project Overview §1 |
-| 2 | 데이터: 그룹 표(2A = 건강인), 운동 3개, 오류 정의 / Data: groups (2A = healthy), 3 exercises, error definitions | 공식 readme, 숙제 §2 / official readme, homework §2 |
-| 3 | 질문과 사전 등록 설계(G3 → 1A·2A) / Question and pre-registered design | `PREREGISTRATION.md` |
-| 4 | 결과 1: 확증 시험 실패(92–97% 오류 판정) / Result 1: confirmatory test failed | PREREGISTRATION Results, PROGRESS 10/08 |
-| 5 | 결과 2: 반대 방향은 됨(AUC 0.71–0.77) / Result 2: reverse direction works | `KERAAL_Kinect_Model_Report.pdf` |
-| 6 | 원인: 기준점 차이(연기 vs 실제 그림, 주석자 12°, 조시 캡처) / Cause: threshold shift (acted vs real figure, annotators 12°, Joshi captures) | `explore/video_check/` |
-| 7 | 진행 중: 경계 보정(R1), 시간 구간 모델(R4) / In progress: calibration (R1), temporal-segment model (R4) | 10/16 결과 / 10/16 results |
-| 8 | 남은 계획과 한계 / Next steps and limits | `PROGRESS.md` 백로그 / backlog |
+| 1 | 연구 배경 / Research background | 조시 / Joshi |
+| 2 | 연구 목표 / Research objectives | 로시니 / Roshini |
+| 3 | 데이터 수집 / Data collection | 의진 / Euijin |
+| 4 | 현재 진행과 데모 / Current progress and demo | 의진 / Euijin |
+| 5 | 다음 단계 / Next steps | Sonny |
+| 6 | 전체 계획(완료 / 할 일, 타임라인) / Overall plan (done / to do, timeline) | Sonny |
 
-사용할 그림 / Figures: `keraal_pipeline/explore/video_check/CTK_acted_vs_real.png`, `G3_CTK_E1_B1-B3.png`, `keraal_pipeline/results/figures/`
+**1. Research background (Joshi)** — lower back pain patients are increasing and rehab exercise is hard to do alone at home **(needs statistics with sources)**.
+- 1.1 Problem: people doing rehab alone at home have no one to tell them when they make a mistake.
+- 1.2 Limits of current practice: dependence on in-person therapists; uncorrected posture errors accumulate and delay recovery.
+- 1.3 Technical opportunity: skeleton (pose) estimation lets us analyse posture from video alone (Kinect / BlazePose).
+- 1.4 Per-second feedback on "which error occurred, and at which body part".
+
+**2. Research objectives (Roshini)**
+- 2.1 Final goal: a self-guided rehabilitation feedback system using the KERAAL data.
+- 2.2 Specific goals: detect error type (Error1–3) and body part per second; run in real time on a webcam (BlazePose).
+- 2.3 Research questions: do normalised kinematic features beat raw coordinates for participant-independent error classification? Does a model trained on acted errors work on real people?
+- 2.4 KERAAL dataset: 1A patients (250) / 2A healthy adults (51) / G3 acted errors (540) / 1B·2B unlabelled; CTK, ELK, RTK; annotator A (time segments) / B (whole recording); Kinect, BlazePose, video; CC BY-NC-SA.
+
+**3. Data collection (Euijin)**
+- 3.2 Preprocessing to CSV: 15 fps time base verified; one row per frame; Kinect 841 recordings / 237,733 rows, BlazePose 835 / 224,912.
+- 3.3 QC: error frames about 6–9%; 115 BlazePose recordings truncated, 6 excluded (`skeleton_truncated`); annotation often stops where the error ends (`in_annotated_span`); metatable and QC reports.
+
+**4. Current progress and demo (Euijin)**
+- 4.1 Pre-registered confirmatory test (G3 → 1A/2A): H1–H3 unsupported; 92–97% of test recordings labelled as errors.
+- 4.2 Reverse direction (1A+2A → G3, per second): AUC 0.71–0.77.
+- 4.3 Rule-based pilot (one angle + one threshold, LOSO): AUC CTK 0.72 / ELK 0.74 / RTK 0.88.
+- 4.4 Key findings (exploratory): threshold shift (CTK best threshold 76.5° patients vs 45.5° healthy); frame-level errors relate to trunk lean (RTK Error1 AUC 0.86).
+- 4.5 Demo: simulated real-time replay of video + angle curves + error segments (`replay_demo.py`, 6 videos).
+
+**5. Next steps (Sonny)**
+- 5.1 Threshold calibration (R1), temporal-segment model (R4), mixed-effects model (R3).
+- 5.2 Port to BlazePose and re-calibrate thresholds.
+- 5.3 Learned models: feature-based model → causal TCN (per-second error type and body part).
+- 5.4 Real-time webcam demo.
+- 5.5 Open items: meaning of Error1–3, scope of G3 use, primary metric, annotation track (global / temporal).
+
+**6. Overall plan (Sonny)**
+- 6.1 Timeline: weeks 1–3 topic and proposal / 4–5 parser / 6 data cleaning / 7 rule-based pilot and confirmatory test / 8–13 BlazePose port → models → webcam demo.
+- 6.2 Table of completed vs remaining work.
+- 6.3 Limitations and risks: small sample, 1A standing vs G3 seated, Kinect → BlazePose gap.
+
+**핵심 메시지 / Key message.** 연기 데이터로 배운 모델이 실패한 이유는 인식 능력이 아니라 판정 기준점의 차이다(탐색, R1로 확인 중). / The model trained on acted data failed not because it cannot recognise errors but because its decision threshold differs (exploratory; being tested with R1).
+
+사용할 그림 / Figures: `keraal_pipeline/explore/video_check/CTK_acted_vs_real.png`, `G3_CTK_E1_B1-B3.png`, `keraal_pipeline/results/figures/`, `members/euijin/demo_result/`
 
 ## 7. 규칙 / Rules
 
@@ -156,10 +183,13 @@ Original question → pre-registered test (failed) → cause analysis (threshold
 
 | 파일 / File | 내용 / Content |
 |---|---|
-| `KERAAL_Project_Overview_KR.pdf` / `_EN.pdf` | 처음 볼 문서 / start here |
-| `KERAAL_Team_Meeting_Agenda_1016_KR.pdf` / `_EN.pdf` | 10/16 회의 안건 / meeting agenda |
-| `KERAAL_Team_Roles_KR.pdf` / `_EN.pdf` | 역할과 과제 / roles and tasks |
-| `KERAAL_Kinect_Model_Report.pdf` | 반대 방향 실험 보고서 / reverse-direction report |
+| `docs/KERAAL_Project_Overview_KR.pdf` / `_EN.pdf` | 처음 볼 문서 / start here |
+| `docs/KERAAL_Team_Roles_KR.pdf` / `_EN.pdf` | 역할과 과제(R1–R4, U1–U4) / roles and tasks |
+| `docs/KERAAL_GitHub_Guide_KR.pdf` / `_EN.pdf` | GitHub 사용법 / how to use GitHub |
+| `docs/KERAAL_Exercise_Error_Classification_Proposal.docx` | 제안서 / proposal |
+| `docs/KERAAL_Research_Homework.pdf`, `docs/Rehabilitation_Project_Insight_Full_Idea.pdf` | 배경·목표 자료(발표 1·2절) / background and objectives material (talk §1–2) |
+| `docs/KERAAL_Pipeline_KR.pdf` | 파이프라인 설계(10/02) / pipeline design |
+| `members/roshini/Kinect_model/KERAAL_Kinect_Model_Report.pdf` | 반대 방향 실험 보고서 / reverse-direction report |
 | `keraal_pipeline/PROGRESS.md` | 전체 진행 기록·백로그 / full log and backlog |
 | `keraal_pipeline/PREREGISTRATION.md` | 사전 등록과 확증 결과 / pre-registration and results |
 | `keraal_pipeline/CODE_GUIDE.md`, `README.md` | 코드 설명·실행 방법 / code guide and how to run |

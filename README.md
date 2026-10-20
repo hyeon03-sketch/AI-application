@@ -7,7 +7,7 @@ AI application 수업 팀 프로젝트 저장소 / Team project repository for t
 **EN.** People doing rehab exercises at home have no one to tell them when they make a mistake. Using the KERAAL dataset (Kinect skeletons), we build models that detect exercise errors automatically, and test whether a model trained on errors acted by healthy people works on real people.
 
 - 진행 상황과 발표 흐름 / Progress and presentation flow → [`PROGRESS_AND_PRESENTATION.md`](PROGRESS_AND_PRESENTATION.md)
-- 처음 볼 문서 / Start here → [`KERAAL_Project_Overview_KR.pdf`](KERAAL_Project_Overview_KR.pdf) · [`_EN.pdf`](KERAAL_Project_Overview_EN.pdf)
+- 처음 볼 문서 / Start here → [`docs/KERAAL_Project_Overview_KR.pdf`](docs/KERAAL_Project_Overview_KR.pdf) · [`_EN.pdf`](docs/KERAAL_Project_Overview_EN.pdf)
 - 상세 진행 기록 / Detailed log → [`keraal_pipeline/PROGRESS.md`](keraal_pipeline/PROGRESS.md)
 
 ---
@@ -19,7 +19,7 @@ AI application 수업 팀 프로젝트 저장소 / Team project repository for t
 | Sonny | `hyeon03-sketch` | 팀장, 저장소 관리 / lead, repo owner | [`members/sonny/`](members/sonny/) | `sonny/` |
 | Euijin (의진) | `EJGitAdmin` | 데이터 / data (U1–U4) | [`members/euijin/`](members/euijin/) | `euijin/` |
 | Roshini (로시니) | `Roshini-24p` | 프로그래밍 / programming (R1–R4) | [`members/roshini/`](members/roshini/) | `roshini/` |
-| Joshi (조시) | `josiet518` | 관찰·이해 / observation & understanding | [`members/joshi/`](members/joshi/) | `joshi/` |
+| Joshi (조시) | `josiet518` | 연구 배경 (발표 1절) / research background (talk §1) | [`members/joshi/`](members/joshi/) | `joshi/` |
 
 **KR.** 개인 폴더는 각자의 작업 공간이다(메모, 초안, 시험 코드). 팀이 함께 쓰는 코드는 `keraal_pipeline/`에 있다. 개인 폴더에서 다듬은 코드를 팀 코드로 옮길 때는 Pull Request로 올린다. 각 개인 폴더의 `README.md`에 이번 주 할 일과 결과 링크를 적는다.
 
@@ -32,9 +32,8 @@ AI application/
 ├── README.md                       ← 이 파일: 소개 + 협업 규칙 / this file: intro + cowork rules
 ├── PROGRESS_AND_PRESENTATION.md    ← 진행 상황·발표 흐름 / progress & presentation flow
 ├── RULES.md                        ← 협업 규칙 전체 / full cowork rules
-├── KERAAL_GitHub_Guide_KR/EN.pdf   ← GitHub 사용법 / how to use GitHub
 ├── .github/CODEOWNERS              ← 승인 담당자 / required reviewers
-├── *.pdf, *.docx                   ← 제안서, 계획, 역할, 회의 안건, 보고서 / proposal, plan, roles, agendas, reports
+├── docs/                           ← 개요, GitHub 사용법, 역할, 제안서, 배경 자료 / overview, GitHub guide, roles, proposal, background
 ├── members/                        ← 개인 폴더 / personal folders
 │   ├── sonny/  euijin/  roshini/  joshi/
 └── keraal_pipeline/                ← 팀 공용 코드 / shared code
@@ -85,7 +84,7 @@ git push -u origin roshini/r1-threshold
 
 ## 협업 규칙 / Cowork rules
 
-**전체 규칙 → [`RULES.md`](RULES.md)** · 처음 쓰는 사람 → [`KERAAL_GitHub_Guide_KR.pdf`](KERAAL_GitHub_Guide_KR.pdf) / [`_EN.pdf`](KERAAL_GitHub_Guide_EN.pdf)
+**전체 규칙 → [`RULES.md`](RULES.md)** · 처음 쓰는 사람 → [`docs/KERAAL_GitHub_Guide_KR.pdf`](docs/KERAAL_GitHub_Guide_KR.pdf) / [`_EN.pdf`](docs/KERAAL_GitHub_Guide_EN.pdf)
 **Full rules → [`RULES.md`](RULES.md)** · New to GitHub → the guide PDFs above.
 
 > ⚠️ 이 저장소는 **공개(public)**다. 원본 데이터·파생 표·영상·영상 캡처·개인정보는 절대 올리지 않는다.
@@ -108,7 +107,7 @@ git push -u origin roshini/r1-threshold
 
 | 날짜 / Date | 무엇 / What |
 |---|---|
-| 2026-10-16 (금 / Fri) | 중간 발표 전 팀 회의, R1·R2·U1·U2 결과 / pre-midterm meeting, R1/R2/U1/U2 results |
+| 중간발표 / midterm (날짜 미정 / date TBD) | 30분, 6절, 절별 담당 → [`PROGRESS_AND_PRESENTATION.md`](PROGRESS_AND_PRESENTATION.md) 6절 / 30 min, 6 sections with owners → section 6 |
 | 2026-10-23 (금 / Fri) | U3·U4 (Vicon 정렬, 2B 기준 분포 / Vicon alignment, 2B reference), R3·R4 (혼합 모형, 시간 구간 모델 / mixed model, temporal model) |
 
 ## 데이터 출처와 라이선스 / Data attribution and licence

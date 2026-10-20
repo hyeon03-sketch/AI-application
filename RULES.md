@@ -1,7 +1,7 @@
 # 협업 규칙 / Cowork Rules
 
 KERAAL 팀 저장소의 협업 규칙 / Cowork rules for the KERAAL team repository.
-처음 쓰는 사람은 사용법 PDF를 먼저 보세요 / New to GitHub? Read the guide first: [`KERAAL_GitHub_Guide_KR.pdf`](KERAAL_GitHub_Guide_KR.pdf) · [`_EN.pdf`](KERAAL_GitHub_Guide_EN.pdf)
+처음 쓰는 사람은 사용법 PDF를 먼저 보세요 / New to GitHub? Read the guide first: [`docs/KERAAL_GitHub_Guide_KR.pdf`](docs/KERAAL_GitHub_Guide_KR.pdf) · [`_EN.pdf`](docs/KERAAL_GitHub_Guide_EN.pdf)
 
 > ⚠️ **이 저장소는 공개(public)다. 전 세계 누구나 모든 파일을 볼 수 있다.**
 > ⚠️ **This repository is public. Anyone in the world can see every file.**
