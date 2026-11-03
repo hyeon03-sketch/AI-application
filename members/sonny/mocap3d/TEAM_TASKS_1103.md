@@ -14,7 +14,7 @@
 | 사람 | 과제 | 결과물 | 기한 |
 |---|---|---|---|
 | **Roshini** (프로그래밍) | **R1. 2A 실행.** `g1a.py`의 `compute_angles`·`labels`는 지금 `group1A`와 `G1A-Kinect-` 파일 이름에 고정돼 있다 → group 인자로 바꾸고 2A에 `detect clean group2A` → `angles` → `report`. 1A와 Kinect 일치(r, RMSE)를 나란히 비교 (환자 효과 vs 방·카메라 효과) | PR + 표 | 11/6 |
-| | **R2. 오류 구간 분석.** 녹화 단위 대신, 주석자 A가 표시한 오류 구간(temporal error)과 같은 녹화의 정상 구간을 비교. 네 초 단위 Kinect 모델(`roshini/kinect-model`) 방식을 그대로 쓰고, 입력만 Kinect 각도 vs 우리 3D 각도로 바꿔 AUC 비교. 환자 간 차이를 피할 수 있는 유일한 방법 | PR + 표 | 11/8 |
+| | **R2. 오류 구간 분석.** 녹화 단위 대신, 주석자 A가 표시한 오류 구간(temporal error)과 같은 녹화의 정상 구간을 비교. Roshini의 초 단위 Kinect 모델(`roshini/kinect-model`) 방식을 그대로 쓰고, 입력만 Kinect 각도 vs 우리 3D 각도로 바꿔 AUC 비교. 환자 간 차이를 피할 수 있는 유일한 방법 | PR + 표 | 11/8 |
 | | 기존 R-a(무릎–목 스케일 MPJPE), R-b(공정 비교 재실행)는 R1·R2 뒤로 미룬다 | | |
 | **Euijin** (데이터) | **E3. 오류 구간 표.** 1A·2A 녹화마다 주석자 A·B의 오류 구간 수, 총 길이(초), 오류 종류. R2의 입력이 된다. 녹화 단위 라벨이 환자마다 한쪽으로 몰린 것(RESULTS.md 1절 표)도 원본 주석으로 한 번 확인 | `temporal_errors.csv` (**로컬, GitHub 금지**) + 요약 메모 | 11/5 |
 | | **E4. 골격선 제거 품질 확인.** `python g1a.py check-mask <png>`로 나온 원본/제거 비교 그림을 녹화 20개 정도 눈으로 보고, 흔적이 많이 남은 녹화 목록 작성 | 메모 (그림은 로컬만) | 11/6 |
@@ -27,9 +27,9 @@
 ## Roshini: 실행 방법 / How to run
 
 1. Sonny가 드라이브로 보내는 `share_roshini_1a.zip`(290 MB: 1A 모델 가중치 3개, ASPset 모델 3개, 1A 2D 검출 결과)을 받는다. **KERAAL 파생물이라 GitHub에 올리지 않는다.**
-   - `g1a/…` → `E:/KERAAL_mocap3d/g1a/…`
-   - `aspset_runs/det_root_s*/best.pt` → `E:/ASPset510_data/runs/det_root_s*/best.pt`
-   - 다른 경로를 쓰면 `g1a.py` 맨 위 `ROOT`, `OUT`, `YOLO`, `ASPSET`만 바꾸면 된다.
+    - `g1a/…` → `E:/KERAAL_mocap3d/g1a/…`
+    - `aspset_runs/det_root_s*/best.pt` → `E:/ASPset510_data/runs/det_root_s*/best.pt`
+    - 다른 경로를 쓰면 `g1a.py` 맨 위 `ROOT`, `OUT`, `YOLO`, `ASPSET`만 바꾸면 된다.
 2. KERAAL 원본은 `E:/KERAAL_data/extracted` (`group1A`, `group2A` 폴더). YOLO 가중치 `yolo11x-pose.pt`는 ultralytics에서 받는다.
 3. 패키지: `torch`, `ultralytics`, `opencv-python`, `scikit-learn`, `numpy`.
 4. `cd members/sonny/mocap3d/patients_1a` → `python g1a.py --check` (데이터 없이 도는 자체 검사) → 그다음 위 명령.
