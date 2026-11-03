@@ -8,9 +8,9 @@
 
 ## 한 줄 결론 / Bottom line
 
-> **실험은 성공했고, 이 방향으로 계속 진행한다.** 스포츠 데이터(ASPset-510)에 재활 데이터(KERAAL)를 합쳐 학습하자, 학습에 쓰지 않은 새 참가자에서 일반 카메라 1대가 **Kinect 깊이 센서보다 정확한 관절 각도**를 냈다.
+> **실험은 성공했고, 이 방향으로 계속 진행한다.** 스포츠 데이터(ASPset-510)에 재활 데이터(KERAAL)를 합쳐 학습하자, 학습에 쓰지 않은 새 참가자에서 일반 카메라 1대가 **Kinect 깊이 센서보다 정확한 관절 각도**를 냈다. 단, 학습과 시험이 같은 방·같은 카메라일 때의 결과다.
 >
-> **The experiment succeeded and we continue in this direction.** After merging rehab data (KERAAL) into sports training data (ASPset-510), one ordinary camera gave **more accurate joint angles than a Kinect depth sensor** on new participants never seen in training.
+> **The experiment succeeded and we continue in this direction.** After merging rehab data (KERAAL) into sports training data (ASPset-510), one ordinary camera gave **more accurate joint angles than a Kinect depth sensor** on new participants never seen in training. This holds when training and testing share the same room and camera.
 
 | | ASPset만 / ASPset only | **ASPset + KERAAL** | Kinect 센서 / sensor |
 |---|---|---|---|
@@ -41,8 +41,8 @@
 
 1. **효과가 크다 / Large effect.** 위치 오차가 약 1/3로 줄었다 (223 → 70 mm). 가장 크게 좋아진 곳은 앉은 자세의 다리다 (발목 431 → 58 mm).
    *Position error drops to about a third; seated legs improved most (ankle 431 → 58 mm).*
-2. **Kinect를 넘는다 / Beats the Kinect.** 관절 각도에서 9개 단위(참가자 × 운동) **모두** Kinect보다 좋았다 (p = 0.004).
-   *Better than the Kinect on joint angles in **all** 9 participant × exercise cells (p = 0.004).*
+2. **Kinect를 넘는다 / Beats the Kinect.** 관절 각도에서 참가자 3명 **모두** Kinect보다 좋았다. 모델은 같은 방·같은 카메라로 학습했고 Kinect는 그렇지 않으므로, 완전히 대등한 비교는 아니다.
+   *Better than the Kinect on joint angles in **all** 3 participants. The model was trained in the same room with the same camera and the Kinect was not, so the comparison is not fully equal.*
 3. **보정에 기대지 않는 지표로도 확인된다 / Confirmed by a calibration-independent metric.** 각도 지표는 우리가 만든 보정이 아니라 Vicon 마커의 회전(쿼터니언)에서 나온다. 보정이 틀렸어도 이 결과는 바뀌지 않는다.
    *The angle metric comes from Vicon marker rotations, not from our calibration, so it holds even if the calibration were off.*
 4. **새 사람에게도 된다 / Works on new people.** 테스트 참가자는 학습에 한 번도 쓰지 않았다.
@@ -84,10 +84,10 @@
 
 ## 5. 교수님께 여쭤볼 것 / Questions for the professor
 
-1. 이 결과("재활 데이터를 사후 보정해서 합치면 단일 카메라가 Kinect를 넘는다")를 논문의 핵심 주장으로 삼아도 될까요?
-   *Can this be the paper's core claim?*
-2. 실제 환자(1A) 검증이 논문에 필수일까요, 아니면 한계로 적어도 될까요?
-   *Is the patient (1A) check required, or can it be listed as a limitation?*
+1. 이 결과("재활 데이터를 사후 보정해서 합치면, 같은 환경에서 단일 카메라가 Kinect를 넘는다")를 논문의 핵심 주장으로 삼아도 될까요?
+   *Can this, scoped to the same setting, be the paper's core claim?*
+2. 1A에는 Vicon이 없어 환자의 3D 정확도는 잴 수 없고, 치료사 라벨에 대한 오류 판별로 평가합니다. 이 평가로 충분할까요?
+   *1A has no Vicon, so patient 3D accuracy cannot be measured; we evaluate error detection against therapist labels. Is that sufficient?*
 3. KERAAL 사후 보정 방법 자체를 기여로 넣어도 될까요?
    *Can the post-hoc KERAAL calibration count as a contribution?*
 

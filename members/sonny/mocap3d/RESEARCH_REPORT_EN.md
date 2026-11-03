@@ -6,7 +6,7 @@
 
 ## Conclusion (first page)
 
-> **A 2D→3D model trained on sports data (ASPset-510) alone could not handle rehab movements. After post-hoc camera calibration of a rehab dataset (KERAAL) and mixing it into training, a single ordinary camera produced more accurate joint angles than a Kinect depth sensor on new participants never used in training.**
+> **A 2D→3D model trained on sports data (ASPset-510) alone could not handle rehab movements. After post-hoc camera calibration of a rehab dataset (KERAAL) and mixing it into training, a single ordinary camera produced more accurate joint angles than a Kinect depth sensor on new participants never used in training.** This holds when training and testing share the same room and camera (§5.5).
 
 | | ASPset only | **ASPset + KERAAL** | Kinect sensor |
 |---|---|---|---|
@@ -22,7 +22,7 @@ Values are means ± SD over 3 seeds; KERAAL values are measured only on particip
 1. **The problem was pose variety, not data volume.** Going from 3 to 13 ASPset training subjects left the KERAAL error unchanged. 89% of KERAAL poses are seated, against 13% in ASPset.
 2. **The calibration-free KERAAL dataset can be calibrated post hoc.** Using the Kinect as a bridge, Vicon was moved into camera coordinates: 25 mm 3D residual and 6.2 px reprojection error on held-out recordings.
 3. **Merged training cuts position error to about a third.** 222.9 → 69.5 mm, better in all 9 seed × participant runs.
-4. **It beats the Kinect on angles too.** This angle metric is independent of the calibration. r0 is higher and RMSE lower than the Kinect in all 9 cells (participant × exercise), p = 0.004.
+4. **It beats the Kinect on angles too.** This angle metric is independent of the calibration. r0 is higher and RMSE lower than the Kinect in all 3 participants, though the model was trained in the same room with the same camera (§5.5).
 5. **The RTK failure came from missing data, not a single-camera limit.** After merging, r0 rose from 0.23 to 0.72, past the Kinect (0.63).
 
 **Caveat:** only 3 test participants (healthy, acted errors), filmed in the same room with the same camera as the training data. Real patients and other locations are not yet tested (§7).
@@ -123,7 +123,7 @@ Vicon targets ──② fixed offsets──▶ Vicon joint points ──③ R, t
 | Conditions | ① ASPset only ② ASPset + KERAAL (Vicon GT) ③ ASPset + KERAAL (Kinect GT) ④ KERAAL only (Vicon GT, 457 epochs for the same number of updates) |
 | Training | AdamW lr 1e-3, 120 epochs, left-right flip augmentation + flip TTA, **seeds 0, 1, 2** |
 | Metrics | **Position:** MPJPE and PA-MPJPE against Vicon joint points (16 joints, no head_top). **Angles:** correlation r0 and RMSE against Vicon **quaternion** relative angles; the angle metric is independent of the calibration. **ASPset test:** checks the original domain is kept |
-| Tests | Wilcoxon signed-rank over 9 test-participant × exercise cells (seed-averaged) |
+| Comparison | Direction and size across the 3 participants (seed-averaged); no p-values |
 
 ## 5. Results
 
@@ -164,16 +164,29 @@ Vicon targets ──② fixed offsets──▶ Vicon joint points ──③ R, t
 | Hip R / L | 83 → 12 / 83 → 11 | Shoulder R / L | 169 → 81 / 174 → 74 |
 | Head / neck / spine | 154 → 70 / 170 → 67 / 120 → 44 | | |
 
-### 5.5 Statistical tests (9 cells = participant × exercise, seed-averaged)
+### 5.5 Participant-level comparison (3 participants, seed-averaged)
 
-| Comparison | r0 diff, cells better, p | RMSE diff, cells better, p |
+The independent unit is the 3 participants. The 9 participant × exercise cells are three exercises from each person and are not independent, so the earlier cell-level p-values (p = 0.004 etc.) have been **removed**. Three participants cannot give a meaningful p-value, so only direction and size are reported. Values are mean differences of per-participant medians.
+
+| Comparison | r0 diff, participants better | RMSE diff, participants better |
 |---|---|---|
-| ② vs ① ASPset only | +0.256, **9/9**, p = 0.004 | −6.1°, 8/9, p = 0.012 |
-| ② vs Kinect | +0.103, **9/9**, p = 0.004 | −7.9°, **9/9**, p = 0.004 |
-| ③ vs Kinect | +0.041, 6/9, p = 0.129 | −6.0°, 9/9, p = 0.004 |
-| ④ vs Kinect | +0.088, 8/9, p = 0.020 | −8.1°, 9/9, p = 0.004 |
-| ② Vicon GT vs ③ Kinect GT | +0.062, 7/9, p = 0.039 | −1.8°, 7/9, p = 0.055 |
-| ② merged vs ④ KERAAL only | +0.015, 5/9, p = 0.43 | +0.3°, 2/9, p = 0.16 |
+| ② vs ① ASPset only | +0.170, **3/3** | −6.4°, **3/3** |
+| ② vs Kinect | +0.094, **3/3** | −4.8°, **3/3** |
+| ③ vs Kinect | +0.042, 3/3 | −3.0°, 3/3 |
+| ④ vs Kinect | +0.077, 3/3 | −5.1°, 3/3 |
+| ② Vicon GT vs ③ Kinect GT | +0.053, 3/3 | −1.8°, 3/3 |
+| ② merged vs ④ KERAAL only | +0.018, 3/3 | +0.3°, 0/3 |
+
+| Participant | ② r0 / Kinect r0 | ② RMSE / Kinect RMSE |
+|---|---|---|
+| P1 | 0.878 / 0.782 | 13.7° / 19.6° |
+| P2 | 0.722 / 0.639 | 14.0° / 17.5° |
+| P3 | 0.693 / 0.588 | 14.0° / 19.0° |
+
+**Scope of the Kinect comparison.** The angle computation and reference are the same: same joint-angle function, same Vicon reference, same sync search. These things are not the same:
+- Our model was trained on other people in the **same room with the same camera** as the test person. The Kinect was not tuned to this setting. So the result means "trained for this setting, it beats the Kinect", not that it would in a setting it has never seen.
+- Frames where Kinect tracking failed are dropped from the Kinect values only.
+- The trunk axis of the shoulder angle is SpineShoulder–SpineBase for the Kinect and neck–pelvis for our model.
 
 In all 9 seed × participant runs, ②, ③ and ④ had lower position error than ①.
 
@@ -184,10 +197,10 @@ In all 9 seed × participant runs, ②, ③ and ④ had lower position error tha
 3. **The GT format matched ASPset exactly.** The §3.2 calibration put KERAAL GT into the same frame (OpenCV axes, mm, pelvis-relative, same 17-joint order), so the data could be mixed without changing the model or the loss.
 4. **Calibration error is below model error.** Calibration 25 mm vs model 69 mm, so GT noise did not spoil training.
 5. **The two datasets protect each other.**
-   - On KERAAL, ② and ④ are statistically the same (p = 0.43).
+   - On KERAAL, ② and ④ differ little (r0 +0.018, RMSE +0.3°).
    - But ④ collapsed on ASPset (315 mm), while ② even improved on ASPset (83.4 → 81.1 mm).
    - So **one model for both domains needs the merge**. The paper's §6.2 (MPI-INF-3DHP + ASPset) shows the same effect.
-6. **GT quality matters.** Vicon GT (②) beat Kinect GT (③) even on the calibration-independent angle r0 (p = 0.039), so §3.2 steps ②③ (moving Vicon into the camera frame) were worth doing.
+6. **GT quality matters.** Vicon GT (②) beat Kinect GT (③) even on the calibration-independent angle r0 in all 3 participants (+0.053), so §3.2 steps ②③ (moving Vicon into the camera frame) were worth doing.
 7. **The results are stable.** Between-seed SD is 0.8 mm for MPJPE and 0.005 for r0, and all 9 seed × participant runs improved.
 
 ## 7. Limitations, failures, and why
@@ -200,8 +213,8 @@ In all 9 seed × participant runs, ②, ③ and ④ had lower position error tha
    - So part of the position gain is "learning the definition". The angle metric is definition-free and also improved a lot, so the conclusion holds.
 3. **Wrist error is still large (~150 mm).** Wrist GT is a forearm-target offset fitted to the Kinect wrist, whose tracking is unstable. Functional joint centres (SCoRE) or the hand targets could fix this.
 4. **A KERAAL-only model does not generalise.** Two people, indoors, three exercises — too narrow a pose range.
-5. **The sample is small.** 3 test participants; the 9 cells are three exercises from the same person each, so they are not fully independent.
-6. **Same room, same camera.** We showed generalisation to new people, not to new places or cameras.
+5. **The sample is small.** 3 test participants, too few for a statistical test.
+6. **Same room, same camera.** We showed generalisation to new people, not to new places or cameras. The Kinect comparison holds only under this condition (§5.5).
 7. **Only acted errors were tested.** Real patients (1A) may move differently.
 8. **ASPset's own GT accuracy is unreported.** The paper gives no validation in mm.
 

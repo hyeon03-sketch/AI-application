@@ -1,0 +1,14 @@
+[
+ {"name": "base"},
+ {"name": "share33", "args": ["--keraal-share", "0.33"]},
+ {"name": "share50", "args": ["--keraal-share", "0.5"]},
+ {"name": "noise", "args": ["--noise", "0.015", "--jdrop", "0.05"]},
+ {"name": "roll", "args": ["--roll", "15"]},
+ {"name": "bone", "args": ["--bone", "0.5"]},
+ {"name": "vel", "args": ["--vel", "1.0"]},
+ {"name": "rf243", "args": ["--layers", "5"]},
+ {"name": "drop50", "args": ["--drop", "0.5"]},
+ {"name": "share50_ep60", "args": ["--keraal-share", "0.5", "--epochs", "60"]},
+ {"name": "share50", "args": ["--keraal-share", "0.5"], "pairs": "outer", "seeds": [0, 1, 2]},
+ {"name": "share70", "args": ["--keraal-share", "0.7"]}
+]
