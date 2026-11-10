@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>교수님께 드릴 질문 · Questions for the Professor</title>
+<style>
+  :root { --bg:#f6f4ef; --card:#fffdf8; --ink:#1d2433; --mute:#5b6475; --line:#d9d4c7; --acc:#1f5fbf; --acc-soft:#e3ecfa; --warn:#a4491b; --warn-soft:#fbe9dd; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14171d; --card:#1c2028; --ink:#e9ecf2; --mute:#9aa3b5; --line:#313744; --acc:#7fb0ff; --acc-soft:#1d2c47; --warn:#f0a070; --warn-soft:#3a2518; } }
+  * { box-sizing: border-box; }
+  html { scroll-snap-type: y mandatory; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.55 "Segoe UI", "Malgun Gothic", system-ui, sans-serif; word-break:keep-all; }
+  body.en .ko, body:not(.en) .en { display:none; }
+  section { min-height:100vh; scroll-snap-align:start; display:flex; flex-direction:column; justify-content:center; padding:6vh max(16px, 7vw); position:relative; }
+  section > * { max-width:1100px; width:100%; margin-left:auto; margin-right:auto; }
+  .tag { color:var(--acc); font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:.8rem; margin-bottom:.4rem; }
+  h1 { font-size:clamp(2rem, 5vw, 3.2rem); line-height:1.15; margin:0 0 1rem; text-wrap:balance; }
+  h2 { font-size:clamp(1.4rem, 3.2vw, 2.1rem); line-height:1.25; margin:0 0 1.1rem; text-wrap:balance; }
+  p { margin:.4rem auto; }
+  .lead { font-size:1.15rem; color:var(--mute); }
+  .grid { display:grid; gap:14px; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); margin-top:.6rem; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 18px; }
+  .card h3 { margin:0 0 .4rem; font-size:.85rem; letter-spacing:.05em; text-transform:uppercase; color:var(--mute); }
+  .card ul { margin:0; padding-left:1.1rem; } .card li { margin:.25rem 0; }
+  .ask { background:var(--acc-soft); border-color:var(--acc); } .ask h3 { color:var(--acc); }
+  .limit { background:var(--warn-soft); border-color:var(--warn); } .limit h3 { color:var(--warn); }
+  .q { font-size:1.2rem; font-weight:600; }
+  .num { font-variant-numeric:tabular-nums; font-weight:700; }
+  .now { display:inline-block; background:var(--warn); color:var(--bg); border-radius:999px; padding:1px 10px; font-size:.75rem; font-weight:700; white-space:nowrap; }
+  table { border-collapse:collapse; width:100%; background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; font-size:.93rem; }
+  th, td { text-align:left; padding:8px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--mute); font-size:.8rem; letter-spacing:.04em; text-transform:uppercase; } tr:last-child td { border-bottom:0; }
+  td.n { font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .flow { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:.4rem auto 1rem; }
+  .flow > span { background:var(--card); border:1px solid var(--line); border-radius:999px; padding:6px 14px; } .flow i { color:var(--mute); font-style:normal; }
+  .foot { position:absolute; bottom:14px; left:0; right:0; padding:0 max(16px, 7vw); color:var(--mute); font-size:.8rem; display:flex; justify-content:space-between; max-width:none; }
+  .scroll { overflow-x:auto; }
+  #lang { position:fixed; top:12px; right:12px; z-index:9; background:var(--card); color:var(--ink); border:1px solid var(--line); border-radius:999px; padding:6px 14px; font:inherit; font-size:.85rem; cursor:pointer; }
+  @media print { html { scroll-snap-type:none; } section { min-height:auto; height:100vh; page-break-after:always; } #lang { display:none; } }
+</style>
+</head>
+<body>
+<button id="lang" type="button" aria-label="Switch language / 언어 바꾸기">English</button>
+
+<section>
+  <div class="tag">AI Application · <span class="ko">팀 프로젝트</span><span class="en">team project</span> · 2026-11-10</div>
+  <h1><span class="ko">교수님께 드릴 질문</span><span class="en">Questions for the Professor</span></h1>
+  <p class="lead ko">일반 카메라 한 대로 재활 운동의 3D 동작을 얻는 모델(Mocap3D).<br>이번 주에 모델을 확정하고 결과를 정리하기 위해 답이 필요한 것들입니다.</p>
+  <p class="lead en">3D motion from one ordinary camera for rehabilitation exercises (Mocap3D).<br>What we need answered to finalise the model and frame the result this week.</p>
+  <p style="margin-top:2rem">Sonny · Euijin · Roshini · Joshi</p>
+  <div class="foot"><span><span class="ko">↓ / ↑ 또는 스크롤, 오른쪽 위 버튼으로 한/영 전환</span><span class="en">Use ↓ / ↑ or scroll; top-right button switches language</span></span><span>1 / 12</span></div>
+</section>
+
+<section>
+  <div class="tag"><span class="ko">현재 상태</span><span class="en">Where we are</span></div>
+  <h2 class="ko">처음부터 끝까지 동작하고, 모델은 이번 주에 고정할 수 있습니다</h2>
+  <h2 class="en">The pipeline works end to end, and the model can be frozen this week</h2>
+  <div class="flow"><span><span class="ko">영상</span><span class="en">Video</span></span><i>→</i><span><span class="ko">2D 관절 (YOLO pose)</span><span class="en">2D joints (YOLO pose)</span></span><i>→</i><span><b>Lifter: 2D → 3D</b></span><i>→</i><span><span class="ko">관절 각도</span><span class="en">Joint angles</span></span><i>→</i><span><span class="ko">오류 판별</span><span class="en">Error detection</span></span></div>
+  <div class="scroll"><table>
+    <tr><th><span class="ko">처음 보는 참가자, Vicon 기준</span><span class="en">Unseen participant, vs Vicon</span></th><th><span class="ko">우리 모델</span><span class="en">Ours</span></th><th>MotionBERT</th><th>Kinect</th></tr>
+    <tr><td><span class="ko">각도 오차 (낮을수록 좋음)</span><span class="en">Angle error (lower is better)</span></td><td class="n"><b>12–15°</b></td><td class="n">17–25°</td><td class="n">17–20°</td></tr>
+    <tr><td><span class="ko">각도 상관 (높을수록 좋음)</span><span class="en">Angle correlation (higher is better)</span></td><td class="n"><b>0.68–0.84</b></td><td class="n">0.56–0.81</td><td class="n">0.59–0.78</td></tr>
+    <tr><td><span class="ko">몸통 회전 운동의 각도 상관</span><span class="en">Angle correlation, trunk rotation exercise</span></td><td class="n"><b>0.68–0.75</b></td><td class="n">0.25–0.35</td><td class="n">0.65</td></tr>
+    <tr><td><span class="ko">관절 위치 오차</span><span class="en">Joint position error</span></td><td class="n"><b>53 / 63 / 63 mm</b></td><td><span class="ko">미측정</span><span class="en">not measured</span></td><td>–</td></tr>
+  </table></div>
+  <p class="ko" style="margin-top:1rem;color:var(--mute)">참가자 3명을 한 명씩 빼고 학습해 시험한 값(시드 0)입니다. 시드 3개 평균은 위치 오차 59.9 ± 0.3 mm, 각도 오차 13.5 ± 0.1°이고, 시드에 따른 차이는 최대 2.2 mm입니다. MotionBERT는 오늘 처음 돌린 값이며 관절 대응을 팀이 아직 검토하지 않았습니다.</p>
+  <p class="en" style="margin-top:1rem;color:var(--mute)">Each of three participants held out once (seed 0). Over three seeds the mean is 59.9 ± 0.3 mm position error and 13.5 ± 0.1° angle error; seeds differ by at most 2.2 mm. MotionBERT is a first run from today and its joint mapping has not been reviewed by the team.</p>
+  <div class="foot"><span></span><span>2 / 12</span></div>
+</section>
+
+<section>
+  <div class="tag"><span class="ko">이 프로젝트에서 "모델을 만든다"는 것</span><span class="en">What "building a model" means in this project</span></div>
+  <h2 class="ko">새 구조를 발명한 것이 아니라, 알려진 구조가 재활에서 작동하게 하는 데이터 조합과 검증을 만들었습니다</h2>
+  <h2 class="en">We did not invent an architecture. We built the data recipe and the test that make a standard one work for rehab</h2>
+  <div class="scroll"><table>
+    <tr><th><span class="ko">단계</span><span class="en">Level</span></th><th><span class="ko">뜻</span><span class="en">What it means</span></th><th><span class="ko">예</span><span class="en">Example</span></th><th><span class="ko">우리</span><span class="en">Us?</span></th></tr>
+    <tr><td><b><span class="ko">쓴다</span><span class="en">Use</span></b></td><td><span class="ko">공개 가중치를 받아 그대로 돌린다</span><span class="en">Download public weights and run them</span></td><td>MotionBERT, MediaPipe</td><td><span class="ko">비교 대상으로만</span><span class="en">Only as baselines</span></td></tr>
+    <tr><td><b><span class="ko">분야에 맞게 학습시킨다</span><span class="en">Train for a domain</span></b></td><td><span class="ko">학습 데이터를 고르고 고쳐, 알려진 구조를 학습시키고, 처음 보는 사람에서 정답과 비교한다</span><span class="en">Choose and repair the training data, train a known architecture, test on unseen people against ground truth</span></td><td><span class="ko">우리 lifter (VideoPose3D 방식)</span><span class="en">Our lifter (VideoPose3D-style)</span></td><td><b><span class="ko">이것이 우리 작업</span><span class="en">Yes, this is our work</span></b></td></tr>
+    <tr><td><b><span class="ko">발명한다</span><span class="en">Invent</span></b></td><td><span class="ko">새 구조나 학습 방법을 만든다</span><span class="en">New network design or learning method</span></td><td><span class="ko">MotionBERT 저자들</span><span class="en">MotionBERT's authors</span></td><td><span class="ko">아님</span><span class="en">No</span></td></tr>
+  </table></div>
+  <div class="grid" style="margin-top:14px">
+    <div class="card"><h3><span class="ko">실제로 만든 것</span><span class="en">What we actually built</span></h3>
+      <ul class="ko"><li>골격 정의·프레임 속도·카메라가 다른 세 데이터를 하나의 학습 세트로 합침</li><li>Vicon을 카메라 화면 좌표로 옮기는 보정</li><li>참가자를 한 명씩 빼고 Vicon과 비교하는 시험</li></ul>
+      <ul class="en"><li>One training set from three sources with different skeletons, frame rates and cameras</li><li>Calibration that puts Vicon into the camera view</li><li>A leave-one-participant-out test against Vicon</li></ul></div>
+    <div class="card"><h3><span class="ko">거기서 알게 된 것</span><span class="en">What we learned from it</span></h3>
+      <ul class="ko"><li>스포츠 데이터를 늘려도 재활에는 도움이 안 됨</li><li>재활 데이터를 조금 넣으면 오차가 약 3분의 1로 줄어듦</li><li>가중치는 결과물이고, 기여는 방법과 증거</li></ul>
+      <ul class="en"><li>More sports data does not help rehab</li><li>A small amount of rehab data cuts the error by about two thirds</li><li>The weights are an outcome; the recipe and the evidence are the contribution</li></ul></div>
+  </div>
+  <div class="foot"><span></span><span>3 / 12</span></div>
+</section>
+
+<section>
+  <div class="tag"><span class="ko">이번 주에 필요한 답</span><span class="en">What we need this week</span></div>
+  <h2 class="ko">질문 7개 중 4개는 답에 따라 이번 주 작업이 달라집니다</h2>
+  <h2 class="en">Four of the seven questions change what we do this week</h2>
+  <div class="scroll"><table>
+    <tr><th>#</th><th><span class="ko">질문</span><span class="en">Question</span></th><th><span class="ko">답에 따라 달라지는 이번 주 작업</span><span class="en">What the answer changes this week</span></th></tr>
+    <tr><td class="n">1 <span class="now"><span class="ko">이번 주</span><span class="en">this week</span></span></td><td><span class="ko">구조를 바꿔야 하는가</span><span class="en">Must we change the network?</span></td><td><span class="ko">모델을 지금 고정할지, 구조 실험을 더 할지</span><span class="en">Freeze the model now, or run architecture experiments</span></td></tr>
+    <tr><td class="n">3 <span class="now"><span class="ko">이번 주</span><span class="en">this week</span></span></td><td><span class="ko">MotionBERT를 우리 데이터로 미세조정해야 하는가</span><span class="en">Must we fine-tune MotionBERT on our data?</span></td><td><span class="ko">추가 학습 1–2일이 필요한지</span><span class="en">One or two extra days of training, or none</span></td></tr>
+    <tr><td class="n">4 <span class="now"><span class="ko">이번 주</span><span class="en">this week</span></span></td><td><span class="ko">각도를 어떻게 재고, 몇 도면 충분한가</span><span class="en">How to measure angles, and how many degrees is good enough?</span></td><td><span class="ko">평가 코드를 다시 짜야 하는지, 목표 숫자가 무엇인지</span><span class="en">Whether the evaluation must be rewritten, and what number to aim for</span></td></tr>
+    <tr><td class="n">6 <span class="now"><span class="ko">이번 주</span><span class="en">this week</span></span></td><td><span class="ko">알려진 약점 중 고쳐야 하는 것</span><span class="en">Which known weakness must be fixed?</span></td><td><span class="ko">남은 시간을 개선에 쓸지, 비교와 설명에 쓸지</span><span class="en">Spend the time on fixes, or on comparison and explanation</span></td></tr>
+    <tr><td class="n">2, 5, 7</td><td><span class="ko">주장의 범위, 환자 데이터, 제출물</span><span class="en">Scope of the claim, patient data, deliverable</span></td><td><span class="ko">발표와 보고서의 문장 (작업은 그대로)</span><span class="en">Wording of the presentation and report (work unchanged)</span></td></tr>
+  </table></div>
+  <div class="foot"><span></span><span>4 / 12</span></div>
+</section>
+
+<section>
+  <div class="tag"><span class="ko">질문 1 · 기여</span><span class="en">Question 1 · contribution</span> <span class="now"><span class="ko">이번 주</span><span class="en">this week</span></span></div>
+  <h2 class="ko">표준 구조에 데이터 조합 방법만으로 "우리 모델"이라 할 수 있습니까?</h2>
+  <h2 class="en">Is a data recipe with a standard architecture enough as "our model"?</h2>
+  <div class="grid">
+    <div class="card"><h3><span class="ko">우리가 한 것</span><span class="en">What we did</span></h3>
+      <ul class="ko"><li>표준 시간 합성곱 lifter 사용</li><li>학습 설정 9가지를 바꿔도 오차 변화는 2 mm 미만, 데이터를 바꾸면 150 mm</li></ul>
+      <ul class="en"><li>Standard temporal convolution lifter</li><li>Nine training settings changed the error by under 2 mm; data changed it by 150 mm</li></ul></div>
+    <div class="card limit"><h3><span class="ko">확신이 없는 것</span><span class="en">What we are unsure about</span></h3>
+      <ul class="ko"><li>수업에서 새 구조나 방법을 기대하시는지</li><li>"어떤 데이터를 어떻게 합치는가"가 주 결과로 인정되는지</li></ul>
+      <ul class="en"><li>Does the course expect a new architecture or method?</li><li>Is "which data and how to merge it" an acceptable main result?</li></ul></div>
+    <div class="card ask"><h3><span class="ko">질문</span><span class="en">We ask</span></h3>
+      <p class="q ko">남은 시간을 비교와 설명에 써야 합니까, 구조를 바꾸는 데 써야 합니까?</p><p class="ko">기본안: 비교와 설명.</p>
+      <p class="q en">Should the rest of our time go into comparison and explanation, or into changing the network?</p><p class="en">Our default: comparison and explanation.</p></div>
+  </div>
+  <div class="foot"><span></span><span>5 / 12</span></div>
+</section>
+
+<section>
+  <div class="tag"><span class="ko">질문 2 · 근거</span><span class="en">Question 2 · evidence</span></div>
+  <h2 class="ko">정답이 있는 참가자가 3명뿐일 때 어디까지 주장할 수 있습니까?</h2>
+  <h2 class="en">With only three participants who have ground truth, what are we allowed to claim?</h2>
+  <div class="grid">
+    <div class="card"><h3><span class="ko">우리가 한 것</span><span class="en">What we did</span></h3>
+      <ul class="ko"><li>참가자를 한 명씩 빼고 시험, 시드 3개</li><li>참가자 × 운동 9개 단위 모두에서 Kinect보다 각도 오차가 작음</li><li>9개 단위가 3명에서 나왔으므로 p값은 뺌</li></ul>
+      <ul class="en"><li>Each participant held out once, three seeds</li><li>Smaller angle error than the Kinect in 9 of 9 participant × exercise cells</li><li>We removed p-values: the 9 cells come from 3 people</li></ul></div>
+    <div class="card limit"><h3><span class="ko">한계</span><span class="en">Limits</span></h3>
+      <ul class="ko"><li>세 명 모두 건강한 성인</li><li>학습과 같은 방, 같은 카메라, 같은 운동 3가지</li></ul>
+      <ul class="en"><li>All three are healthy adults</li><li>Same room, same camera, same three exercises as training</li></ul></div>
+    <div class="card ask"><h3><span class="ko">질문</span><span class="en">We ask</span></h3>
+      <p class="q ko">"같은 환경의 새 사람에게 작동한다"는 주장으로 충분합니까? 어떻게 표현해야 합니까?</p><p class="ko">Vicon 없이 우리가 몇 명을 더 찍으면 도움이 됩니까?</p>
+      <p class="q en">Is "works for new people in the same setup" a sufficient claim, and how should we word it?</p><p class="en">Would recording a few more people ourselves, without Vicon, add anything?</p></div>
+  </div>
+  <div class="foot"><span></span><span>6 / 12</span></div>
+</section>
+
+<section>
+  <div class="tag"><span class="ko">질문 3 · 비교 대상</span><span class="en">Question 3 · baselines</span> <span class="now"><span class="ko">이번 주</span><span class="en">this week</span></span></div>
+  <h2 class="ko">어떤 비교가 있어야 결과가 설득력을 가집니까?</h2>
+  <h2 class="en">Which comparison makes the result convincing?</h2>
+  <div class="scroll"><table>
+    <tr><th><span class="ko">비교 대상</span><span class="en">Compared with</span></th><th><span class="ko">보여 주는 것</span><span class="en">What it shows</span></th><th><span class="ko">상태</span><span class="en">Status</span></th></tr>
+    <tr><td><span class="ko">2D만으로 계산한 각도</span><span class="en">Angles from 2D only</span></td><td><span class="ko">3D가 도움이 되는지</span><span class="en">Whether 3D helps at all</span></td><td><span class="ko">완료</span><span class="en">Done</span></td></tr>
+    <tr><td><span class="ko">Kinect 깊이 센서</span><span class="en">Kinect depth sensor</span></td><td><span class="ko">카메라가 센서를 대신할 수 있는지</span><span class="en">Whether a camera can replace the sensor</span></td><td><span class="ko">완료</span><span class="en">Done</span></td></tr>
+    <tr><td><span class="ko">같은 구조, 스포츠 데이터만</span><span class="en">Same network, sports data only</span></td><td><span class="ko">재활 데이터가 더하는 것</span><span class="en">What rehab data adds</span></td><td><span class="ko">완료</span><span class="en">Done</span></td></tr>
+    <tr><td><span class="ko">MotionBERT 공개 가중치 (Euijin 제안)</span><span class="en">MotionBERT, public weights (proposed by Euijin)</span></td><td><span class="ko">최신 공개 모델이 이미 해결하는지</span><span class="en">Whether a modern public model already solves it</span></td><td><span class="ko">첫 실행 완료: 각도 오차 17–25° (우리 12–15°). 몸통 회전에서 실패</span><span class="en">First run done: angle error 17–25° (ours 12–15°). Fails on trunk rotation</span></td></tr>
+  </table></div>
+  <div class="grid" style="margin-top:14px">
+    <div class="card limit"><h3><span class="ko">주의할 점</span><span class="en">The catch</span></h3>
+      <p class="ko">MotionBERT는 이 방을 본 적이 없고, 우리 모델은 같은 방의 다른 사람을 봤습니다. 차이는 "같은 환경의 데이터가 중요하다"는 뜻이지, 우리 구조가 낫다는 뜻이 아닙니다.</p>
+      <p class="en">MotionBERT never saw this room; ours saw other people in it. A gap shows that in-domain data matters, not that our network is better.</p></div>
+    <div class="card ask"><h3><span class="ko">질문</span><span class="en">We ask</span></h3>
+      <p class="q ko">공개 가중치 그대로 비교하면 충분합니까, 아니면 MotionBERT도 우리 데이터로 미세조정해야 합니까?</p>
+      <p class="q en">Is the public-weights comparison enough, or should we also fine-tune MotionBERT on our data?</p></div>
+  </div>
+  <div class="foot"><span></span><span>7 / 12</span></div>
+</section>
+
+<section>
+  <div class="tag"><span class="ko">질문 4 · 각도</span><span class="en">Question 4 · angles</span> <span class="now"><span class="ko">이번 주</span><span class="en">this week</span></span></div>
+  <h2 class="ko">각도를 어떻게 재야 하고, 몇 도면 재활 피드백에 충분합니까?</h2>
+  <h2 class="en">How should we measure angles, and how many degrees is good enough for rehab feedback?</h2>
+  <div class="grid">
+    <div class="card"><h3><span class="ko">지금 재는 방식</span><span class="en">What we measure now</span></h3>
+      <ul class="ko"><li>각도 3종: 팔꿈치, 무릎, 어깨-몸통</li><li>시간에 따른 우리 각도와 Vicon 각도의 상관</li><li>각 곡선의 평균을 뺀 뒤의 각도 오차</li></ul>
+      <ul class="en"><li>Three angles: elbow, knee, shoulder–trunk</li><li>Correlation between our angle over time and the Vicon angle</li><li>Angle error after removing each curve's mean</li></ul></div>
+    <div class="card limit"><h3><span class="ko">절대 각도를 못 쓰는 이유</span><span class="en">Why not absolute angles</span></h3>
+      <ul class="ko"><li>Vicon 값은 신체 마디 사이의 회전량이지, 관절의 굽힘 각도가 아님</li><li>마커 위치에 따라 사람마다 값이 밀림</li><li>그래서 "움직임의 모양이 맞다"까지만 보임</li></ul>
+      <ul class="en"><li>Vicon gives rotation between body segments, not the joint's flexion angle</li><li>Marker placement shifts the value for each person</li><li>So we show the movement pattern matches, not the exact degrees</li></ul></div>
+    <div class="card ask"><h3><span class="ko">질문</span><span class="en">We ask</span></h3>
+      <ul class="ko"><li class="q">이 방식이 주 지표로 인정됩니까, 절대 관절 각도가 필요합니까?</li><li class="q">재활 피드백에는 각도 오차가 몇 도 이하여야 합니까? (현재 12–15°)</li><li class="q">이 세 각도면 충분합니까, 임상에서 더 중요한 각도가 있습니까?</li></ul>
+      <ul class="en"><li class="q">Is this acceptable as the main metric, or do we need absolute joint angles?</li><li class="q">What angle error is small enough for rehab feedback? (now 12–15°)</li><li class="q">Are these three angles enough, or are others more important clinically?</li></ul></div>
+  </div>
+  <div class="foot"><span></span><span>8 / 12</span></div>
+</section>
+
+<section>
+  <div class="tag"><span class="ko">질문 5 · 환자 데이터</span><span class="en">Question 5 · patients</span></div>
+  <h2 class="ko">환자 녹화를 숫자에서 빼도 됩니까?</h2>
+  <h2 class="en">Can we leave the patient recordings out of the numbers?</h2>
+  <div class="grid">
+    <div class="card"><h3><span class="ko">확인한 것</span><span class="en">What we found</span></h3>
+      <ul class="ko"><li>환자 녹화에는 Vicon이 없고 Kinect만 있음</li><li>같은 환자가 학습에 쓴 라벨 없는 그룹에 들어 있을 가능성이 높음 (학습 녹화 150개 중 102개가 이 환자들의 체격과 일치)</li><li>오류 라벨이 환자별로 거의 한 값이라 모델 순위를 매길 수 없음</li></ul>
+      <ul class="en"><li>Patient recordings have no Vicon, only the Kinect</li><li>The same patients are probably in the unlabelled group we train on (102 of 150 training recordings match their body size)</li><li>Error labels are almost constant per patient, so they cannot rank models</li></ul></div>
+    <div class="card ask"><h3><span class="ko">질문</span><span class="en">We ask</span></h3>
+      <p class="q ko">숫자는 건강한 참가자로만 보고하고, 환자는 데모로만 보여 드려도 됩니까?</p><p class="ko">기본안: 그렇게 하고 한계에 명시.</p>
+      <p class="q en">Is it acceptable to report numbers on healthy participants only, and show patients as a demo?</p><p class="en">Our default: yes, and say so on the limits slide.</p></div>
+  </div>
+  <div class="foot"><span></span><span>9 / 12</span></div>
+</section>
+
+<section>
+  <div class="tag"><span class="ko">질문 6 · 알려진 약점</span><span class="en">Question 6 · known weaknesses</span> <span class="now"><span class="ko">이번 주</span><span class="en">this week</span></span></div>
+  <h2 class="ko">이 약점들을 고쳐야 합니까, 보고하면 충분합니까?</h2>
+  <h2 class="en">Do we need to fix these, or is reporting them enough?</h2>
+  <div class="scroll"><table>
+    <tr><th><span class="ko">약점</span><span class="en">Weakness</span></th><th><span class="ko">숫자</span><span class="en">Number</span></th><th><span class="ko">우리 해석</span><span class="en">Our reading</span></th></tr>
+    <tr><td><span class="ko">깊이 (카메라와의 거리)</span><span class="en">Depth (distance from the camera)</span></td><td><span class="ko">우리 38 mm, Kinect 23 mm</span><span class="en">Ours 38 mm, Kinect 23 mm</span></td><td><span class="ko">카메라 한 대의 한계에 가까움</span><span class="en">Close to the limit of one camera</span></td></tr>
+    <tr><td><span class="ko">몸통 회전 운동</span><span class="en">Trunk rotation exercise</span></td><td><span class="ko">깊이 오차 44 mm</span><span class="en">Depth error 44 mm</span></td><td><span class="ko">움직임이 대부분 깊이 방향</span><span class="en">The movement is mostly in depth</span></td></tr>
+    <tr><td><span class="ko">한 운동(ELK)의 오류 판별</span><span class="en">Error detection on one exercise (ELK)</span></td><td><span class="ko">Kinect 포함 모든 방법이 AUC 0.52</span><span class="en">AUC 0.52 for every method, including the Kinect</span></td><td><span class="ko">모델이 아니라 라벨의 문제</span><span class="en">A label problem, not a model problem</span></td></tr>
+    <tr><td><span class="ko">피드백의 세밀함</span><span class="en">Feedback detail</span></td><td><span class="ko">틀린 관절을 맞힌 비율 22–35% (우연 12.5%)</span><span class="en">Wrong joint found in 22–35% of cases (chance 12.5%)</span></td><td><span class="ko">"이 반복이 틀렸다"까지, "이 관절이 틀렸다"는 아님</span><span class="en">We can say "this repetition is wrong", not "this joint is wrong"</span></td></tr>
+  </table></div>
+  <div class="card ask" style="margin-top:14px"><h3><span class="ko">질문</span><span class="en">We ask</span></h3>
+    <p class="q ko">이 중 최종 발표 전에 반드시 개선해야 하는 것이 있습니까?</p>
+    <p class="q en">Which of these, if any, must be improved before the final presentation?</p></div>
+  <div class="foot"><span></span><span>10 / 12</span></div>
+</section>
+
+<section>
+  <div class="tag"><span class="ko">질문 7 · 제출물</span><span class="en">Question 7 · deliverable</span></div>
+  <h2 class="ko">데이터 라이선스를 고려하면 최종 제출물에 무엇이 들어가야 합니까?</h2>
+  <h2 class="en">What should the final submission contain, given the data licence?</h2>
+  <div class="grid">
+    <div class="card"><h3><span class="ko">제약</span><span class="en">The constraint</span></h3>
+      <ul class="ko"><li>KERAAL은 CC BY-NC-SA (비상업, 동일조건)</li><li>영상, 프레임별 출력, 학습된 가중치는 팀 안에만 둠</li><li>코드와 집계 숫자는 GitHub에 있음</li></ul>
+      <ul class="en"><li>KERAAL is CC BY-NC-SA</li><li>Videos, per-frame outputs and trained weights stay inside the team</li><li>Code and aggregate numbers are on GitHub</li></ul></div>
+    <div class="card ask"><h3><span class="ko">질문</span><span class="en">We ask</span></h3>
+      <ul class="ko"><li class="q">보고서, 논문 초안, 실시간 데모 중 무엇을 내야 합니까?</li><li class="q">공개할 수 없는 가중치는 어떻게 제출합니까?</li><li class="q">수업 발표에서 KERAAL 영상을 보여 드려도 됩니까?</li></ul>
+      <ul class="en"><li class="q">Report, paper draft, live demo, or all three?</li><li class="q">How should we hand in weights we cannot publish?</li><li class="q">May we show KERAAL video clips in the class presentation?</li></ul></div>
+  </div>
+  <div class="foot"><span></span><span>11 / 12</span></div>
+</section>
+
+<section>
+  <div class="tag"><span class="ko">질문 목록 (한/영)</span><span class="en">Question list (KR / EN)</span></div>
+  <h2 class="ko">질문 7개와, 답이 없을 때 우리가 할 일</h2>
+  <h2 class="en">Seven questions, and what we will do if there is no answer</h2>
+  <div class="scroll"><table>
+    <tr><th>#</th><th>한국어</th><th>English</th><th>기본안 · Default</th></tr>
+    <tr><td class="n">1 <span class="now">!</span></td><td>표준 구조에 데이터 조합 방법만으로 "우리 모델"이라 할 수 있습니까?</td><td>Is a data recipe with a standard architecture enough as "our model"?</td><td>구조는 바꾸지 않음 · No architecture changes</td></tr>
+    <tr><td class="n">2</td><td>정답이 있는 참가자가 3명뿐일 때 어디까지 주장할 수 있습니까?</td><td>What claim do three participants with ground truth support?</td><td>"같은 환경의 새 사람", p값 없음 · "New people, same setup"; no p-values</td></tr>
+    <tr><td class="n">3 <span class="now">!</span></td><td>MotionBERT는 공개 가중치 그대로 비교하면 충분합니까, 미세조정이 필요합니까?</td><td>Is MotionBERT with public weights enough, or must we fine-tune it?</td><td>미세조정 안 함 · No fine-tuning</td></tr>
+    <tr><td class="n">4 <span class="now">!</span></td><td>각도 변화의 모양을 주 지표로 써도 됩니까? 몇 도면 충분합니까? 어떤 각도가 중요합니까?</td><td>Is the angle-shape metric acceptable? How many degrees is enough? Which angles matter?</td><td>지금 방식 유지 · Keep the current metric</td></tr>
+    <tr><td class="n">5</td><td>환자 녹화는 숫자에서 빼고 데모로만 써도 됩니까?</td><td>May patients be demo only, outside the numbers?</td><td>뺌 · Yes</td></tr>
+    <tr><td class="n">6 <span class="now">!</span></td><td>알려진 약점 4가지 중 반드시 고쳐야 하는 것이 있습니까?</td><td>Which of the four known weaknesses must be fixed?</td><td>고치지 않고 모두 보고 · None; report all four</td></tr>
+    <tr><td class="n">7</td><td>최종 제출물에 무엇이 들어가야 합니까? 공개 못 하는 가중치는 어떻게 냅니까?</td><td>What goes into the final submission? How do we hand in weights we cannot publish?</td><td>보고서, 데모, 코드 · Report, demo, code</td></tr>
+  </table></div>
+  <p style="margin-top:.8rem;color:var(--mute)"><span class="now">!</span> <span class="ko">답에 따라 이번 주 작업이 달라지는 질문</span><span class="en">The answer changes this week's work</span></p>
+  <div class="foot"><span></span><span>12 / 12</span></div>
+</section>
+
+<script>
+  const s = [...document.querySelectorAll('section')], b = document.getElementById('lang');
+  const setLang = en => { document.body.classList.toggle('en', en); document.documentElement.lang = en ? 'en' : 'ko'; b.textContent = en ? '한국어' : 'English'; };
+  b.onclick = () => setLang(!document.body.classList.contains('en'));
+  if (location.hash === '#en') setLang(true);
+  addEventListener('keydown', e => {
+    if (e.key === 'l' || e.key === 'L') return b.onclick();
+    const d = { ArrowDown: 1, PageDown: 1, ArrowRight: 1, ' ': 1, ArrowUp: -1, PageUp: -1, ArrowLeft: -1 }[e.key];
+    if (!d) return;
+    e.preventDefault();
+    const i = Math.round(scrollY / innerHeight);
+    s[Math.max(0, Math.min(s.length - 1, i + d))].scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>
