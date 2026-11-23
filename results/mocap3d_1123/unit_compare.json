@@ -1,0 +1,111 @@
+{
+ "units": [
+  "P1-CTK",
+  "P1-ELK",
+  "P1-RTK",
+  "P2-CTK",
+  "P2-ELK",
+  "P2-RTK",
+  "P3-CTK",
+  "P3-ELK",
+  "P3-RTK"
+ ],
+ "per_unit": {
+  "mpjpe_mm": {
+   "Kinect": [
+    26.18,
+    60.33,
+    48.95,
+    65.4,
+    67.26,
+    49.44,
+    42.29,
+    68.96,
+    41.79
+   ],
+   "VideoPose3D": [
+    48.32,
+    57.07,
+    60.24,
+    74.41,
+    62.77,
+    80.67,
+    61.16,
+    68.97,
+    62.75
+   ],
+   "Mocap3D": [
+    61.75,
+    63.23,
+    63.85,
+    62.41,
+    55.0,
+    71.51,
+    50.4,
+    53.57,
+    52.29
+   ]
+  },
+  "angle_rmse_deg": {
+   "Kinect": [
+    9.67,
+    11.95,
+    11.77,
+    20.0,
+    22.62,
+    9.58,
+    14.93,
+    17.76,
+    10.63
+   ],
+   "VideoPose3D": [
+    8.37,
+    9.14,
+    10.02,
+    17.23,
+    17.7,
+    9.28,
+    11.95,
+    19.98,
+    12.64
+   ],
+   "Mocap3D": [
+    8.27,
+    12.36,
+    7.37,
+    15.68,
+    16.86,
+    7.44,
+    8.41,
+    14.95,
+    11.31
+   ]
+  }
+ },
+ "tests": {
+  "mpjpe_mm: Mocap3D vs VideoPose3D": {
+   "mocap3d_lower_units": 6,
+   "n_units": 9,
+   "mean_diff": -4.7,
+   "wilcoxon_p": 0.2031
+  },
+  "mpjpe_mm: Mocap3D vs Kinect": {
+   "mocap3d_lower_units": 3,
+   "n_units": 9,
+   "mean_diff": 7.04,
+   "wilcoxon_p": 0.3594
+  },
+  "angle_rmse_deg: Mocap3D vs VideoPose3D": {
+   "mocap3d_lower_units": 8,
+   "n_units": 9,
+   "mean_diff": -1.52,
+   "wilcoxon_p": 0.0742
+  },
+  "angle_rmse_deg: Mocap3D vs Kinect": {
+   "mocap3d_lower_units": 7,
+   "n_units": 9,
+   "mean_diff": -2.92,
+   "wilcoxon_p": 0.0195
+  }
+ }
+}

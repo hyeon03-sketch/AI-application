@@ -1,0 +1,468 @@
+{
+ "keraal": {
+  "Kinect depth sensor": [
+   {
+    "name": "Kinect",
+    "recordings": 540,
+    "mpjpe_mm": 52.84254506306215,
+    "pa_mpjpe_mm": 45.371985506219545,
+    "angle_pairs": 2044,
+    "angle_r0_median": 0.8070894817076966,
+    "angle_rmse_median_deg": 13.357232982825881,
+    "by_participant": {
+     "P1": 10.24,
+     "P2": 18.73,
+     "P3": 13.68
+    }
+   }
+  ],
+  "VideoPose3D, before fine-tuning": [
+   {
+    "name": "VP3D_before",
+    "recordings": 540,
+    "mpjpe_mm": 243.90882259856963,
+    "pa_mpjpe_mm": 104.51120258517665,
+    "angle_pairs": 2044,
+    "angle_r0_median": 0.6214801725530922,
+    "angle_rmse_median_deg": 20.139481604754003,
+    "by_participant": {
+     "P1": 15.48,
+     "P2": 19.6,
+     "P3": 23.88
+    }
+   }
+  ],
+  "VideoPose3D, fine-tuned": [
+   {
+    "name": "VideoPose3D, fine-tuned",
+    "recordings": 540,
+    "mpjpe_mm": 64.32622336233662,
+    "pa_mpjpe_mm": 50.69742262140497,
+    "angle_pairs": 2044,
+    "angle_r0_median": 0.8537064769763527,
+    "angle_rmse_median_deg": 12.15381639513409,
+    "by_participant": {
+     "P1": 8.94,
+     "P2": 14.42,
+     "P3": 13.83
+    },
+    "seed": 0
+   },
+   {
+    "name": "VideoPose3D, fine-tuned",
+    "recordings": 540,
+    "mpjpe_mm": 63.94770091623064,
+    "pa_mpjpe_mm": 50.72914592411945,
+    "angle_pairs": 2044,
+    "angle_r0_median": 0.8581822732590907,
+    "angle_rmse_median_deg": 12.141419099174449,
+    "by_participant": {
+     "P1": 9.0,
+     "P2": 14.14,
+     "P3": 13.94
+    },
+    "seed": 1
+   },
+   {
+    "name": "VideoPose3D, fine-tuned",
+    "recordings": 540,
+    "mpjpe_mm": 64.7021110899617,
+    "pa_mpjpe_mm": 50.573195556491655,
+    "angle_pairs": 2044,
+    "angle_r0_median": 0.8518382049329691,
+    "angle_rmse_median_deg": 12.26768684015464,
+    "by_participant": {
+     "P1": 9.1,
+     "P2": 14.63,
+     "P3": 13.62
+    },
+    "seed": 2
+   }
+  ],
+  "Mocap3D (ours), trained here": [
+   {
+    "name": "Mocap3D (ours), trained here",
+    "recordings": 540,
+    "mpjpe_mm": 58.748620228252896,
+    "pa_mpjpe_mm": 46.72915685298014,
+    "angle_pairs": 2044,
+    "angle_r0_median": 0.9086406524432422,
+    "angle_rmse_median_deg": 10.639462105807503,
+    "by_participant": {
+     "P1": 9.4,
+     "P2": 12.97,
+     "P3": 10.7
+    },
+    "seed": 0
+   },
+   {
+    "name": "Mocap3D (ours), trained here",
+    "recordings": 540,
+    "mpjpe_mm": 59.69174434030316,
+    "pa_mpjpe_mm": 47.284845396487405,
+    "angle_pairs": 2044,
+    "angle_r0_median": 0.9055403236685823,
+    "angle_rmse_median_deg": 10.897255420644452,
+    "by_participant": {
+     "P1": 9.51,
+     "P2": 12.87,
+     "P3": 10.9
+    },
+    "seed": 1
+   },
+   {
+    "name": "Mocap3D (ours), trained here",
+    "recordings": 540,
+    "mpjpe_mm": 58.79583277528653,
+    "pa_mpjpe_mm": 46.90552232608296,
+    "angle_pairs": 2044,
+    "angle_r0_median": 0.9112575050027536,
+    "angle_rmse_median_deg": 10.79941380569748,
+    "by_participant": {
+     "P1": 9.56,
+     "P2": 12.64,
+     "P3": 10.56
+    },
+    "seed": 2
+   }
+  ]
+ },
+ "public": {
+  "VideoPose3D, before / seed0": {
+   "aspset": {
+    "mpjpe_mm": {
+     "median": 138.97016143798828,
+     "mean": 143.4639377593994
+    },
+    "pa_mpjpe_mm": {
+     "median": 81.38982772827148,
+     "mean": 84.62537625630696
+    },
+    "mpjve_mm_per_frame": {
+     "median": 10.08262300491333,
+     "mean": 10.749602786699931
+    },
+    "jitter_pred": {
+     "median": 4.015007495880127,
+     "mean": 4.19871297677358
+    },
+    "jitter_ref": {
+     "median": 7.010746955871582,
+     "mean": 7.215940892696381
+    },
+    "n": 60
+   },
+   "vidimu_no_walking": {
+    "n_recording_x_joint": 608,
+    "n_moving": 415,
+    "r": 0.89,
+    "mean_removed_rmse_deg": 11.47,
+    "rom_diff_deg": -10.0,
+    "reps_same_pct": 67.5,
+    "n_reps": 160
+   },
+   "vidimu_all": {
+    "n_recording_x_joint": 698,
+    "n_moving": 505,
+    "r": 0.86,
+    "mean_removed_rmse_deg": 10.84,
+    "rom_diff_deg": -10.94,
+    "reps_same_pct": 53.7,
+    "n_reps": 205
+   },
+   "knee": {
+    "model": 0.06,
+    "imu": -0.3,
+    "n": 45
+   }
+  },
+  "VideoPose3D, fine-tuned / seed0": {
+   "aspset": {
+    "mpjpe_mm": {
+     "median": 94.24960327148438,
+     "mean": 96.7369260152181
+    },
+    "pa_mpjpe_mm": {
+     "median": 52.51271629333496,
+     "mean": 53.73009026845296
+    },
+    "mpjve_mm_per_frame": {
+     "median": 9.767861366271973,
+     "mean": 9.970865154266358
+    },
+    "jitter_pred": {
+     "median": 3.864670991897583,
+     "mean": 4.097134639819463
+    },
+    "jitter_ref": {
+     "median": 7.010746955871582,
+     "mean": 7.215940892696381
+    },
+    "n": 60
+   },
+   "vidimu_no_walking": {
+    "n_recording_x_joint": 608,
+    "n_moving": 415,
+    "r": 0.93,
+    "mean_removed_rmse_deg": 8.28,
+    "rom_diff_deg": -10.12,
+    "reps_same_pct": 68.1,
+    "n_reps": 160
+   },
+   "vidimu_all": {
+    "n_recording_x_joint": 698,
+    "n_moving": 505,
+    "r": 0.89,
+    "mean_removed_rmse_deg": 8.96,
+    "rom_diff_deg": -9.18,
+    "reps_same_pct": 54.6,
+    "n_reps": 205
+   },
+   "knee": {
+    "model": 0.07,
+    "imu": -0.3,
+    "n": 45
+   }
+  },
+  "VideoPose3D, fine-tuned / seed1": {
+   "aspset": {
+    "mpjpe_mm": {
+     "median": 94.02814865112305,
+     "mean": 96.15458793640137
+    },
+    "pa_mpjpe_mm": {
+     "median": 51.488304138183594,
+     "mean": 53.177309640248616
+    },
+    "mpjve_mm_per_frame": {
+     "median": 9.696312427520752,
+     "mean": 9.901600845654805
+    },
+    "jitter_pred": {
+     "median": 3.774632692337036,
+     "mean": 3.959382200241089
+    },
+    "jitter_ref": {
+     "median": 7.010746955871582,
+     "mean": 7.215940892696381
+    },
+    "n": 60
+   },
+   "vidimu_no_walking": {
+    "n_recording_x_joint": 608,
+    "n_moving": 415,
+    "r": 0.93,
+    "mean_removed_rmse_deg": 8.17,
+    "rom_diff_deg": -10.21,
+    "reps_same_pct": 69.4,
+    "n_reps": 160
+   },
+   "vidimu_all": {
+    "n_recording_x_joint": 698,
+    "n_moving": 505,
+    "r": 0.89,
+    "mean_removed_rmse_deg": 8.85,
+    "rom_diff_deg": -9.13,
+    "reps_same_pct": 55.6,
+    "n_reps": 205
+   },
+   "knee": {
+    "model": 0.07,
+    "imu": -0.3,
+    "n": 45
+   }
+  },
+  "VideoPose3D, fine-tuned / seed2": {
+   "aspset": {
+    "mpjpe_mm": {
+     "median": 93.0056037902832,
+     "mean": 93.65851694742838
+    },
+    "pa_mpjpe_mm": {
+     "median": 51.21980667114258,
+     "mean": 52.696657212575275
+    },
+    "mpjve_mm_per_frame": {
+     "median": 9.633342266082764,
+     "mean": 9.850204157829285
+    },
+    "jitter_pred": {
+     "median": 3.7834537029266357,
+     "mean": 3.949801011880239
+    },
+    "jitter_ref": {
+     "median": 7.010746955871582,
+     "mean": 7.215940892696381
+    },
+    "n": 60
+   },
+   "vidimu_no_walking": {
+    "n_recording_x_joint": 608,
+    "n_moving": 415,
+    "r": 0.92,
+    "mean_removed_rmse_deg": 8.21,
+    "rom_diff_deg": -8.85,
+    "reps_same_pct": 67.5,
+    "n_reps": 160
+   },
+   "vidimu_all": {
+    "n_recording_x_joint": 698,
+    "n_moving": 505,
+    "r": 0.88,
+    "mean_removed_rmse_deg": 8.82,
+    "rom_diff_deg": -8.57,
+    "reps_same_pct": 53.7,
+    "n_reps": 205
+   },
+   "knee": {
+    "model": 0.06,
+    "imu": -0.3,
+    "n": 45
+   }
+  },
+  "Mocap3D (ours), trained here / m3d_all_s0": {
+   "aspset": {
+    "mpjpe_mm": {
+     "median": 74.9054946899414,
+     "mean": 76.94111741383871
+    },
+    "pa_mpjpe_mm": {
+     "median": 46.29500198364258,
+     "mean": 48.4163532892863
+    },
+    "mpjve_mm_per_frame": {
+     "median": 9.709747314453125,
+     "mean": 9.620069559415182
+    },
+    "jitter_pred": {
+     "median": 4.580306053161621,
+     "mean": 4.860241883993149
+    },
+    "jitter_ref": {
+     "median": 7.010746955871582,
+     "mean": 7.215940892696381
+    },
+    "n": 60
+   },
+   "vidimu_no_walking": {
+    "n_recording_x_joint": 608,
+    "n_moving": 415,
+    "r": 0.9,
+    "mean_removed_rmse_deg": 8.98,
+    "rom_diff_deg": -12.2,
+    "reps_same_pct": 68.1,
+    "n_reps": 160
+   },
+   "vidimu_all": {
+    "n_recording_x_joint": 698,
+    "n_moving": 505,
+    "r": 0.86,
+    "mean_removed_rmse_deg": 10.03,
+    "rom_diff_deg": -10.54,
+    "reps_same_pct": 53.2,
+    "n_reps": 205
+   },
+   "knee": {
+    "model": 0.87,
+    "imu": -0.3,
+    "n": 45
+   }
+  },
+  "Mocap3D (ours), trained here / m3d_all_s1": {
+   "aspset": {
+    "mpjpe_mm": {
+     "median": 77.62564849853516,
+     "mean": 77.84386151631674
+    },
+    "pa_mpjpe_mm": {
+     "median": 46.55839920043945,
+     "mean": 48.15098260243734
+    },
+    "mpjve_mm_per_frame": {
+     "median": 9.592251300811768,
+     "mean": 9.65715655485789
+    },
+    "jitter_pred": {
+     "median": 4.675977468490601,
+     "mean": 4.926882791519165
+    },
+    "jitter_ref": {
+     "median": 7.010746955871582,
+     "mean": 7.215940892696381
+    },
+    "n": 60
+   },
+   "vidimu_no_walking": {
+    "n_recording_x_joint": 608,
+    "n_moving": 415,
+    "r": 0.9,
+    "mean_removed_rmse_deg": 8.73,
+    "rom_diff_deg": -12.75,
+    "reps_same_pct": 70.0,
+    "n_reps": 160
+   },
+   "vidimu_all": {
+    "n_recording_x_joint": 698,
+    "n_moving": 505,
+    "r": 0.86,
+    "mean_removed_rmse_deg": 9.71,
+    "rom_diff_deg": -11.73,
+    "reps_same_pct": 54.6,
+    "n_reps": 205
+   },
+   "knee": {
+    "model": 0.83,
+    "imu": -0.3,
+    "n": 45
+   }
+  },
+  "Mocap3D (ours), trained here / m3d_all_s2": {
+   "aspset": {
+    "mpjpe_mm": {
+     "median": 77.23832702636719,
+     "mean": 77.72005062103271
+    },
+    "pa_mpjpe_mm": {
+     "median": 46.591590881347656,
+     "mean": 48.55035343170166
+    },
+    "mpjve_mm_per_frame": {
+     "median": 9.661368370056152,
+     "mean": 9.705672399202983
+    },
+    "jitter_pred": {
+     "median": 4.834723472595215,
+     "mean": 5.087460100650787
+    },
+    "jitter_ref": {
+     "median": 7.010746955871582,
+     "mean": 7.215940892696381
+    },
+    "n": 60
+   },
+   "vidimu_no_walking": {
+    "n_recording_x_joint": 608,
+    "n_moving": 415,
+    "r": 0.9,
+    "mean_removed_rmse_deg": 8.79,
+    "rom_diff_deg": -11.68,
+    "reps_same_pct": 70.6,
+    "n_reps": 160
+   },
+   "vidimu_all": {
+    "n_recording_x_joint": 698,
+    "n_moving": 505,
+    "r": 0.86,
+    "mean_removed_rmse_deg": 9.7,
+    "rom_diff_deg": -12.05,
+    "reps_same_pct": 55.1,
+    "n_reps": 205
+   },
+   "knee": {
+    "model": 0.74,
+    "imu": -0.3,
+    "n": 45
+   }
+  }
+ }
+}
